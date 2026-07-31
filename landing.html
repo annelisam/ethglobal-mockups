@@ -270,28 +270,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .spk .socials svg{width:15px;height:15px;fill:var(--ink)}
 .spk .socials a:hover svg{fill:var(--blue-dark)}
 
-/* schedule */
-.sched-controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:22px}
-.day-tabs,.view-toggle{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
-.day-tabs button,.view-toggle button{border:0;background:transparent;font-family:var(--font);font-weight:700;font-size:13.5px;color:var(--ink-2);padding:9px 18px;border-radius:999px;cursor:pointer}
-.day-tabs button.on,.view-toggle button.on{background:var(--ink);color:#fff}
-.sched-list .row{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 20px;margin-bottom:10px;transition:transform .15s ease,box-shadow .15s ease}
-.sched-list .row:hover{transform:translateX(4px);box-shadow:var(--shadow)}
-.sched-list time{font-weight:800;font-variant-numeric:tabular-nums;color:var(--blue-dark);font-size:15px}
-.sched-list .row b{font-size:15px}
-.sched-list .row p{font-size:13px;color:var(--ink-3)}
-.tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--blue-tint);color:var(--blue-dark)}
-.tag.food{background:#EAF7F0;color:var(--green)}
-.tag.main{background:#111114;color:#fff}
-.sched-cal{display:none;grid-template-columns:repeat(3,1fr);gap:14px}
-.sched-cal.on{display:grid}
-.sched-list.off{display:none}
-.cal-col{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.cal-col h4{background:var(--bg);padding:12px 16px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line)}
-.cal-slot{padding:10px 16px;border-bottom:1px solid var(--line);font-size:13px}
-.cal-slot time{font-weight:800;color:var(--blue-dark);font-variant-numeric:tabular-nums;display:block;font-size:11.5px}
-@media(max-width:800px){.sched-cal{grid-template-columns:1fr}}
-
 /* what happens when: timeline */
 .timeline{position:relative;margin-left:10px;padding-left:34px;border-left:2px solid var(--line)}
 .tl-item{position:relative;padding-bottom:30px}
@@ -300,22 +278,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .tl-item time{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-dark)}
 .tl-item b{display:block;font-size:17px;margin:3px 0 4px}
 .tl-item p{color:var(--ink-2);font-size:14.5px;max-width:560px}
-
-/* side events */
-.side-feature{display:grid;grid-template-columns:1.1fr .9fr;gap:0;overflow:hidden;margin-bottom:22px}
-@media(max-width:860px){.side-feature{grid-template-columns:1fr}}
-.side-feature img{width:100%;height:100%;object-fit:cover;min-height:280px}
-.side-feature .body{padding:34px}
-.side-feature .body h3{font-size:26px;margin:10px 0}
-.side-feature .body p{color:var(--ink-2);margin-bottom:20px}
-.side-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:860px){.side-grid{grid-template-columns:1fr}}
-.side-card{overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
-.side-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
-.side-card img{aspect-ratio:16/9;object-fit:cover;width:100%}
-.side-card .body{padding:18px 20px}
-.side-card b{font-size:15.5px}
-.side-card p{font-size:13px;color:var(--ink-3);margin-top:4px}
 
 /* venue */
 .venue-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:14px;margin-bottom:18px}
@@ -392,11 +354,9 @@ a.ws-card:hover .ws-thumb img{transform:scale(1.05)}
 .ws-thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(17,17,20,.32);opacity:0;transition:opacity .15s ease}
 a.ws-card:hover .ws-thumb .play{opacity:1}
 .ws-thumb .play i{font-style:normal;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:16px;padding-left:3px}
-.ws-thumb.soon img{filter:grayscale(1);opacity:.45}
-.ws-thumb .soon-tag{position:absolute;left:8px;top:8px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
-.ws-body{display:block;padding:12px 14px 14px}
-.ws-body b{display:block;font-size:14px;line-height:1.3;letter-spacing:-.01em}
-.ws-body span{font-size:12px;color:var(--ink-3);font-weight:600}
+.ws-body{display:block;padding:10px 12px 12px}
+.ws-body b{display:block;font-size:13px;line-height:1.3;letter-spacing:-.01em}
+.ws-body span{font-size:11.5px;color:var(--ink-3);font-weight:600}
 
 /* post-event: winners, workshops, data */
 .video-hero{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lift);aspect-ratio:16/9;background:#000}
@@ -436,8 +396,6 @@ a.ws-card:hover .ws-thumb .play{opacity:1}
 .bar-row .desc{font-size:12.5px;color:var(--ink-3);margin-top:-3px}
 .bar-row .track{display:block;height:6px;border-radius:999px;background:var(--bg);overflow:hidden}
 .bar-row .fill{display:block;height:100%;border-radius:999px;background:var(--blue)}
-.panel-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
-.panel-foot b{color:var(--ink)}
 .data-panel .sample-note{margin-top:14px}
 
 /* upcoming */
@@ -498,10 +456,8 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <a href="#prizes" class="pre-only">Prizes</a>
       <a href="#winners" class="post-only">Winners</a>
       <a href="#data" class="post-only">The Numbers</a>
-      <a href="#workshops">Workshops</a>
+      <a href="#workshops" class="post-only">Workshops</a>
       <a href="#speakers" class="pre-only">Speakers</a>
-      <a href="#schedule" class="pre-only">Schedule</a>
-      <a href="#side-events" class="pre-only">Side Events</a>
       <a href="#venue" class="pre-only">Venue</a>
       <a href="#photos">Photos</a>
       <a href="#community">Community</a>
@@ -691,30 +647,6 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   </div>
 </section>
 
-<!-- ================= SCHEDULE ================= -->
-<section id="schedule" class="pre-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Schedule</div>
-      <h2>The three-day schedule</h2>
-      <p class="sub">Switch between list and calendar view. Times are WEST (Lisbon local).</p>
-    </div>
-    <div class="sched-controls">
-      <div class="day-tabs" id="dayTabs">
-        <button class="on" data-day="fri">Fri Jul 24</button>
-        <button data-day="sat">Sat Jul 25</button>
-        <button data-day="sun">Sun Jul 26</button>
-      </div>
-      <div class="view-toggle" id="viewToggle">
-        <button class="on" data-view="list">List</button>
-        <button data-view="cal">Calendar</button>
-      </div>
-    </div>
-    <div class="sched-list" id="schedList"><!-- populated by JS --></div>
-    <div class="sched-cal" id="schedCal"><!-- populated by JS --></div>
-  </div>
-</section>
-
 <!-- ================= WHAT HAPPENS WHEN (pre only) ================= -->
 <section class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
@@ -731,27 +663,6 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <div class="tl-item"><time>Fri Jul 24</time><b>Check in and start hacking</b><p>Doors open in the morning at Pavilhão Carlos Lopes. Workshops run all afternoon and hacking officially kicks off in the evening.</p></div>
       <div class="tl-item"><time>Sun Jul 26, 09:00</time><b>Submit your project</b><p>Submissions close Sunday morning, judging follows, and finalists demo live at the closing ceremony.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ================= SIDE EVENTS ================= -->
-<section id="side-events" class="pre-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Side events · Onchain Lisbon Week, July 20–26</div>
-      <h2>The week around the hackathon</h2>
-      <p class="sub">One headliner, then pick your nights. All within the same city week.</p>
-    </div>
-    <div class="card side-feature">
-      <img src="https://wsrv.nl/?url=cdn.mcauto-images-production.sendgrid.net/4dfd8225882c1272/e9b3dcc6-3b33-4601-8957-e79b568447fd/2400x2400.png&w=1040&h=585&fit=cover&output=jpg" alt="Pragma Lisbon summit graphic">
-      <div class="body">
-        <span class="tag main">Featured · Sat Jul 25</span>
-        <h3>Pragma Lisbon</h3>
-        <p>ETHGlobal's one-day, single-track founder summit, held mid-hackathon at the same venue. One stage, hand-picked talks, and speakers from WalletConnect, 1inch, Haun Ventures, ENS, Gnosis and Pyth. Confirmed hackers get the $49 ticket.</p>
-        <a class="btn btn-ghost" href="https://ethglobal.com/events/pragma-lisbon2026">Apply to attend →</a>
-      </div>
-    </div>
-    <p style="font-size:14.5px;color:var(--ink-2)">Plus CryptoFriday, Onchain Builders Day and community nights across the city all week. <a href="#" style="color:var(--blue-dark);font-weight:700">Full side-event calendar →</a></p>
   </div>
 </section>
 
@@ -868,31 +779,28 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
           <div class="bar-row"><div class="top"><span class="lbl">Extend open source</span><span class="val">24%</span></div><span class="desc">New commits on a repo they already maintain.</span><span class="track" aria-hidden="true"><i class="fill" style="width:24%"></i></span></div>
           <div class="bar-row"><div class="top"><span class="lbl">Ship a feature</span><span class="val">14%</span></div><span class="desc">One new open-source feature on a live product.</span><span class="track" aria-hidden="true"><i class="fill" style="width:14%"></i></span></div>
         </div>
-        <div class="panel-foot">The strongest <b>Continuity</b> projects moved into <b>Spotlight</b> for mentor check-ins after the weekend.</div>
         <p class="sample-note">Sample data. Continuity metrics from the post-event review.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= WORKSHOPS (both states: playlist post, schedule pre) ================= -->
-<section id="workshops">
+<!-- ================= WORKSHOPS (post only) ================= -->
+<section id="workshops" class="post-only">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Workshops</div>
-      <h2 class="pre-only">29+ hands-on workshops</h2>
-      <h2 class="post-only">Watch the workshop recordings</h2>
-      <p class="sub pre-only">Partner engineers run hands-on sessions Friday and Saturday. Every session is recorded and published here.</p>
-      <p class="sub post-only">29+ sessions from the weekend, all on the official playlist.</p>
+      <h2>Watch the workshop recordings</h2>
+      <p class="sub">29+ sessions from the weekend, all on the official playlist.</p>
     </div>
-    <div class="video-hero post-only" style="margin-bottom:20px">
+    <div class="video-hero" style="margin-bottom:14px">
       <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLWgAODGnD_is&rel=0" title="ETHGlobal Lisbon workshops playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
     <div class="ws-grid" id="wsGrid"><!-- populated by JS from WORKSHOPS data --></div>
-    <div class="post-only" style="margin-top:20px">
+    <div style="margin-top:16px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
       <a class="btn btn-ghost" href="https://www.youtube.com/playlist?list=PLWgAODGnD_is" target="_blank" rel="noopener">Open the full playlist →</a>
+      <p class="sample-note" style="margin-top:0">Sample sessions. Wire titles, durations and links to the published playlist.</p>
     </div>
-    <p class="sample-note">Sample sessions. Wire titles, durations and per-video links to the published playlist at build time.</p>
   </div>
 </section>
 
@@ -1069,7 +977,7 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       </div>
       <div>
         <h5>Event</h5>
-        <a href="#about">About</a><a href="#schedule">Schedule</a><a href="#venue">Venue</a><a href="#faq">FAQ</a>
+        <a href="#about">About</a><a href="#venue">Venue</a><a href="#faq">FAQ</a>
       </div>
       <div>
         <h5>Get involved</h5>
@@ -1090,29 +998,19 @@ function setState(s){
   document.body.dataset.state = s;
   document.getElementById('btn-pre').classList.toggle('on', s==='pre');
   document.getElementById('btn-post').classList.toggle('on', s==='post');
-  renderPlaylist();
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-/* ============ workshops playlist (sample list: wire to published playlist) ============ */
+/* ============ workshops playlist (sample: wire to published playlist) ============ */
 const WORKSHOPS = [
-  ['Subgraphs in 60 minutes','The Graph','Fri 14:00','58 min','0js54'],
-  ['Building with World ID','World','Fri 15:00','44 min','ejg1s'],
-  ['Hedera smart contracts, hands-on','Hedera','Fri 16:00','51 min','i3ndv'],
-  ['Onchain AI with 0G','0G','Fri 17:00','39 min','nxmtr'],
-  ['Uniswap v4 hooks, from zero','Uniswap Foundation','Sat 11:00','62 min','0vqgc'],
-  ['Intro to Sui Move','Sui','Sat 12:00','47 min','dpuy0'],
-  ['ENS integrations that ship','ENS','Sat 14:00','35 min','upv5w'],
-  ['1inch APIs for builders','1inch','Sat 15:00','41 min','xpu1p']
+  ['Subgraphs in 60 minutes','The Graph','58 min','0js54'],
+  ['Building with World ID','World','44 min','ejg1s'],
+  ['Uniswap v4 hooks, from zero','Uniswap Foundation','62 min','0vqgc'],
+  ['ENS integrations that ship','ENS','35 min','upv5w']
 ];
 const PL_URL = 'https://www.youtube.com/playlist?list=PLWgAODGnD_is';
-function renderPlaylist(){
-  const post = document.body.dataset.state === 'post';
-  document.getElementById('wsGrid').innerHTML = WORKSHOPS.map(([t,org,slot,dur,ph]) => post
-    ? `<a class="ws-card" href="${PL_URL}" target="_blank" rel="noopener"><span class="ws-thumb"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop recording" loading="lazy"><span class="dur">${dur}</span><span class="play"><i>▶</i></span></span><span class="ws-body"><b>${t}</b><span>${org}</span></span></a>`
-    : `<div class="ws-card"><span class="ws-thumb soon"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop" loading="lazy"><span class="soon-tag">Coming soon</span></span><span class="ws-body"><b>${t}</b><span>${org} · ${slot}</span></span></div>`).join('');
-}
-renderPlaylist();
+document.getElementById('wsGrid').innerHTML = WORKSHOPS.map(([t,org,dur,ph]) =>
+  `<a class="ws-card" href="${PL_URL}" target="_blank" rel="noopener"><span class="ws-thumb"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop recording" loading="lazy"><span class="dur">${dur}</span><span class="play"><i>▶</i></span></span><span class="ws-body"><b>${t}</b><span>${org}</span></span></a>`).join('');
 
 /* ============ countdowns (DEMO targets: real dates have passed) ============ */
 const eventTarget = Date.now() + (24*24*60*60*1000) + (9*3600*1000); // demo: ~24 days out
@@ -1163,46 +1061,6 @@ document.getElementById('spkGrid').innerHTML = SPEAKERS.map(([n,org,id]) => `
     <div class="info"><b>${n}</b><span>${org}</span></div>
   </div>`).join('');
 
-/* ============ schedule (sample structure: confirm against the live agenda) ============ */
-const SCHED = {
-  fri: [['09:00','Check-in opens','Badges, breakfast and workspace claims','logistics'],
-        ['12:00','Opening ceremony','Welcome, Continuity paths explained, partner intros','main'],
-        ['14:00','Workshops, block one','Hands-on partner SDK sessions, running all afternoon','workshop'],
-        ['18:00','Hacking begins','36 hours on the clock','main'],
-        ['20:00','Dinner','Served in the main hall','food']],
-  sat: [['08:00','Breakfast','Fuel up','food'],
-        ['10:00','Pragma Lisbon','Single-track founder summit, same venue, separate ticket','main'],
-        ['11:00','Workshops, block two','More partner sessions through the day','workshop'],
-        ['15:00','Project feedback','Book a slot with judges and mentors','workshop'],
-        ['20:00','Dinner + community night','Eat, then back to it','food']],
-  sun: [['08:00','Breakfast','Last stretch','food'],
-        ['09:00','Submissions due','Projects locked, judging begins','main'],
-        ['09:30','Judging rounds','Demo your project to judges','main'],
-        ['14:00','Finalist demos','Live on the closing stage and the stream','main'],
-        ['16:00','Closing ceremony','Winners announced','main']]
-};
-const TAGCLASS = {main:'tag main', workshop:'tag', food:'tag food', logistics:'tag'};
-let curDay = 'fri';
-function renderSched(){
-  document.getElementById('schedList').innerHTML = SCHED[curDay].map(([t,b,p,tag]) =>
-    `<div class="row"><time>${t}</time><div><b>${b}</b><p>${p}</p></div><span class="${TAGCLASS[tag]}">${tag}</span></div>`).join('');
-  document.getElementById('schedCal').innerHTML = Object.entries({fri:'Fri Jul 24',sat:'Sat Jul 25',sun:'Sun Jul 26'}).map(([k,label]) =>
-    `<div class="cal-col"><h4>${label}</h4>${SCHED[k].map(([t,b]) => `<div class="cal-slot"><time>${t}</time>${b}</div>`).join('')}</div>`).join('');
-}
-document.getElementById('dayTabs').addEventListener('click', e => {
-  if(!e.target.dataset.day) return;
-  curDay = e.target.dataset.day;
-  document.querySelectorAll('#dayTabs button').forEach(b => b.classList.toggle('on', b===e.target));
-  renderSched();
-});
-document.getElementById('viewToggle').addEventListener('click', e => {
-  if(!e.target.dataset.view) return;
-  const cal = e.target.dataset.view === 'cal';
-  document.getElementById('schedCal').classList.toggle('on', cal);
-  document.getElementById('schedList').classList.toggle('off', cal);
-  document.querySelectorAll('#viewToggle button').forEach(b => b.classList.toggle('on', b===e.target));
-});
-renderSched();
 </script>
 </body>
 </html>
