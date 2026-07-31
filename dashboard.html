@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacker Dashboard Mockup · ETHGlobal Lisbon 2026</title>
+<meta name="description" content="Mockup: refined ETHGlobal per-event hacker dashboard with referral hub, team finding and community cohorts.">
+<style>
+:root{
+  --bg:#F4F4F6; --card:#FFFFFF; --ink:#111114; --ink-2:#55555e; --ink-3:#8a8a94;
+  --blue:#5A96FF; --blue-dark:#2f6fe4; --blue-tint:#EDF3FF;
+  --line:#E4E4E8; --green:#1E9E6A; --green-tint:#EAF7F0; --amber:#B7791F; --amber-tint:#FBF3E4;
+  --purple:#7C5CFF; --purple-tint:#F0EDFF;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 1px 2px rgba(17,17,20,.05),0 8px 24px rgba(17,17,20,.07);
+  --shadow-lift:0 2px 4px rgba(17,17,20,.06),0 16px 40px rgba(17,17,20,.14);
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--font)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15}
+.muted{color:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:11px 20px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 14px rgba(90,150,255,.35)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue-dark)}
+.btn-sm{padding:8px 14px;font-size:13px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.chip.blue{background:var(--blue-tint);border-color:#d5e4ff;color:var(--blue-dark)}
+.chip.green{background:var(--green-tint);border-color:#cfe9dd;color:var(--green)}
+.chip.amber{background:var(--amber-tint);border-color:#efe0c2;color:var(--amber)}
+.chip.purple{background:var(--purple-tint);border-color:#ddd5ff;color:var(--purple)}
+
+/* ---------- states ---------- */
+body[data-view="private"] .public-only,body[data-view="private"] .community-only{display:none!important}
+body[data-view="public"] .private-only,body[data-view="public"] .community-only{display:none!important}
+body[data-view="community"] .private-only,body[data-view="community"] .public-only{display:none!important}
+
+/* ---------- demo bar ---------- */
+.demo-bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:300;background:#111114;color:#fff;border-radius:999px;padding:8px 12px 8px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 32px rgba(0,0,0,.3);font-size:13px}
+.demo-bar .lbl{opacity:.65;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px}
+.demo-toggle{display:flex;background:#2a2a30;border-radius:999px;padding:3px}
+.demo-toggle button{border:0;background:transparent;color:#bbb;font-weight:700;font-size:12.5px;padding:7px 14px;border-radius:999px;cursor:pointer}
+.demo-toggle button.on{background:var(--blue);color:#fff}
+.demo-bar .notes-link{color:#9db9ff;font-weight:600;cursor:pointer;padding-right:6px}
+.notes-panel{position:fixed;bottom:76px;left:50%;transform:translateX(-50%);z-index:299;width:min(560px,92vw);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lift);border:1px solid var(--line);padding:24px;display:none;font-size:14px}
+.notes-panel.open{display:block}
+.notes-panel h3{margin-bottom:8px;font-size:16px}
+.notes-panel p{color:var(--ink-2);margin-bottom:8px}
+.notes-panel strong{color:var(--ink)}
+
+/* ---------- site nav (mirrors current ethglobal.com) ---------- */
+.site-nav{background:#fff;border-bottom:1px solid var(--line)}
+.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:17px}
+.logo i{font-style:normal;background:linear-gradient(90deg,#f43f5e,#8b5cf6,#3b82f6,#10b981);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-links{display:flex;gap:20px;font-size:14px;font-weight:600;color:var(--ink-2)}
+@media(max-width:900px){.site-links{display:none}}
+.avatar-sm{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#9db9ff);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+/* ---------- event header + tabs ---------- */
+.event-head{padding:26px 0 0}
+.event-head .title-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.event-badge{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8FB8FF,#5A96FF);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.event-head h1{font-size:26px}
+.tab-bar{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab-bar button{border:0;background:transparent;font-weight:600;font-size:14.5px;color:var(--ink-3);padding:12px 16px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tab-bar button.on{color:var(--ink);font-weight:700;border-bottom-color:var(--ink)}
+.tab-bar button:hover{color:var(--ink)}
+.tab-pane{display:none;padding:30px 0 90px}
+.tab-pane.on{display:block}
+
+/* ---------- layout helpers ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-main-side{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:start}
+@media(max-width:920px){.grid-2,.grid-3,.grid-main-side{grid-template-columns:1fr}}
+.pad{padding:26px}
+.sec-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.sec-sub{font-size:13.5px;color:var(--ink-3);margin-bottom:18px}
+.sample-note{font-size:11.5px;color:var(--ink-3);font-style:italic;margin-top:10px}
+
+/* ---------- stepper ---------- */
+.stepper{display:flex;gap:0;margin-bottom:22px;overflow-x:auto}
+.step{flex:1;min-width:120px;position:relative;text-align:center;padding:0 6px}
+.step .bubble{width:34px;height:34px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:#fff;border:2px solid var(--line);color:var(--ink-3);position:relative;z-index:2}
+.step.done .bubble{background:var(--green);border-color:var(--green);color:#fff}
+.step.now .bubble{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 5px var(--blue-tint)}
+.step:not(:first-child):before{content:"";position:absolute;top:16px;left:calc(-50% + 17px);width:calc(100% - 34px);height:2px;background:var(--line);z-index:1}
+.step.done:before,.step.now:before{background:var(--green)}
+.step b{display:block;font-size:12.5px}
+.step span{font-size:11px;color:var(--ink-3)}
+
+/* ---------- checklist ---------- */
+.progress{height:8px;border-radius:4px;background:var(--bg);overflow:hidden;margin:10px 0 18px}
+.progress i{display:block;height:100%;background:var(--green);border-radius:4px}
+.check-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.check-item:last-child{border-bottom:0}
+.check-item .tick{width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:2px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+.check-item.done .tick{background:var(--green);border-color:var(--green)}
+.check-item b{font-size:14px;display:block}
+.check-item p{font-size:12.5px;color:var(--ink-3)}
+.check-item .act{margin-left:auto;flex-shrink:0}
+
+/* ---------- profile ---------- */
+.profile-head{display:flex;gap:18px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+.avatar-xl{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#8b5cf6);color:#fff;font-weight:800;font-size:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.profile-head h2{font-size:24px}
+.profile-head .handle{color:var(--ink-3);font-size:14px}
+.vis-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.vis-row:last-child{border-bottom:0}
+.vis-row span.desc{color:var(--ink-3);font-size:12px;display:block}
+.switch{position:relative;width:40px;height:22px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.switch .sl{position:absolute;inset:0;background:#d6d6dc;border-radius:999px;cursor:pointer;transition:.2s}
+.switch .sl:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked + .sl{background:var(--green)}
+.switch input:checked + .sl:before{transform:translateX(18px)}
+.share-box{display:flex;gap:8px;align-items:center;background:var(--bg);border:1px dashed var(--line);border-radius:var(--radius-sm);padding:10px 14px;font-size:13.5px;font-weight:600;color:var(--ink-2);flex-wrap:wrap}
+.share-box code{font-family:ui-monospace,Menlo,monospace;color:var(--blue-dark)}
+
+/* ---------- map + stats ---------- */
+.map-box{position:relative;border-radius:var(--radius-sm);overflow:hidden;background:#E9EEF6}
+.map-box img.base{width:100%;filter:grayscale(1) opacity(.35)}
+.map-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(47,111,228,.5);transform:translate(-50%,-50%);cursor:pointer}
+.map-dot.up{background:var(--amber)}
+.map-dot .tip{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#111114;color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.map-dot:hover .tip{opacity:1}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media(max-width:700px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+.stat-mini{background:var(--bg);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.stat-mini b{display:block;font-size:22px;letter-spacing:-.02em}
+.stat-mini span{font-size:11px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+/* ---------- badges ---------- */
+.badge-row{display:flex;gap:14px;flex-wrap:wrap}
+.badge{width:104px;text-align:center}
+.badge .art{width:72px;height:72px;margin:0 auto 8px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:var(--shadow);transition:transform .18s}
+.badge:hover .art{transform:translateY(-4px) rotate(-3deg)}
+.badge b{font-size:11.5px;display:block;line-height:1.25}
+.badge span{font-size:10.5px;color:var(--ink-3)}
+.badge.locked .art{background:var(--bg)!important;color:var(--ink-3);box-shadow:none;border:1px dashed var(--line)}
+
+/* ---------- portfolio ---------- */
+.proj{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.proj:last-child{border-bottom:0}
+.proj img{width:92px;height:52px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.proj b{font-size:14.5px;display:block}
+.proj p{font-size:12.5px;color:var(--ink-3)}
+.proj .chip{margin-left:auto;flex-shrink:0}
+
+/* ---------- referral ---------- */
+.ref-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+@media(max-width:700px){.ref-tiles{grid-template-columns:1fr}}
+.ref-tile{background:var(--bg);border-radius:var(--radius-sm);padding:18px}
+.ref-tile b{display:block;font-size:28px;letter-spacing:-.02em}
+.ref-tile span{font-size:12px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.ref-tile .delta{font-size:11.5px;color:var(--green);font-weight:700}
+.tier-track{position:relative;margin:26px 0 8px;height:6px;background:var(--bg);border-radius:3px}
+.tier-track .fill{position:absolute;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:3px}
+.tier-marks{display:flex;justify-content:space-between;margin-top:14px}
+.tier-mark{text-align:center;width:25%}
+.tier-mark .pt{width:26px;height:26px;border-radius:50%;margin:0 auto 6px;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--ink-3);position:relative;top:-27px;margin-bottom:-21px}
+.tier-mark.hit .pt{background:var(--purple);border-color:var(--purple);color:#fff}
+.tier-mark b{font-size:12px;display:block}
+.tier-mark span{font-size:11px;color:var(--ink-3)}
+.lb-row{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.lb-row:last-child{border-bottom:0}
+.lb-row.me{background:var(--blue-tint);border-radius:var(--radius-sm);padding:10px 12px;border-bottom:0}
+.lb-rank{font-weight:800;color:var(--ink-3)}
+.lb-row .avatar-sm{width:30px;height:30px;font-size:11px}
+.lb-name{display:flex;align-items:center;gap:10px;font-weight:600}
+.lb-count{font-weight:800;font-variant-numeric:tabular-nums}
+
+/* ---------- social card ---------- */
+.social-card{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:1200/630;background:#0e1220;color:#fff;box-shadow:var(--shadow-lift)}
+.social-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.social-card .in{position:relative;z-index:2;padding:26px;display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.social-card .ev{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8FB8FF}
+.social-card h3{font-size:clamp(18px,2.6vw,28px);line-height:1.2;max-width:420px}
+.social-card .foot{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700}
+.social-card .foot .avatar-sm{border:2px solid #fff}
+.social-card .foot code{font-family:ui-monospace,Menlo,monospace;background:rgba(255,255,255,.14);padding:4px 10px;border-radius:6px;font-size:12px}
+
+/* ---------- team ---------- */
+.match{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.match:last-child{border-bottom:0}
+.match .avatar-sm{width:44px;height:44px;font-size:15px;flex-shrink:0}
+.match b{font-size:14.5px;display:block}
+.match .skills{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.match .pct{margin-left:auto;text-align:right;flex-shrink:0}
+.match .pct b{font-size:18px;color:var(--blue-dark)}
+.match .pct span{font-size:10.5px;color:var(--ink-3);display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.idea{padding:18px;border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px;background:#fff;transition:transform .15s,box-shadow .15s}
+.idea:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.idea .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.idea .head b{font-size:14.5px}
+.idea .head span{font-size:12px;color:var(--ink-3)}
+.idea p{font-size:13.5px;color:var(--ink-2);margin-bottom:10px}
+.idea .foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.slots{font-size:12px;font-weight:700;color:var(--amber);margin-left:auto}
+
+/* ---------- team filters ---------- */
+.filter-bar{margin-bottom:16px}
+.filter-bar .search{width:100%;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:14px;font-family:var(--font);background:var(--bg);margin-bottom:12px;outline:none}
+.filter-bar .search:focus{border-color:var(--blue);background:#fff}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.filter-row .lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);width:86px;flex-shrink:0}
+.fchip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:all .12s}
+.fchip:hover{border-color:var(--blue)}
+.fchip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.filter-meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-3);font-weight:600;margin-top:4px}
+.filter-meta .clear{color:var(--blue-dark);cursor:pointer;font-weight:700}
+.no-match{padding:26px;text-align:center;color:var(--ink-3);font-size:14px;border:1px dashed var(--line);border-radius:var(--radius-sm)}
+
+/* ---------- community ---------- */
+.comm-hero{display:flex;gap:18px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
+.comm-logo{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#10b981,#3b82f6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px}
+.member-grid{display:flex;flex-wrap:wrap;gap:8px}
+.member-grid .avatar-sm{width:38px;height:38px;font-size:12px;border:2px solid #fff;box-shadow:var(--shadow)}
+.milestone{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start}
+.milestone:last-child{border-bottom:0}
+.milestone .n{font-weight:800;font-size:15px;color:var(--purple);background:var(--purple-tint);border-radius:10px;text-align:center;padding:10px 0}
+.milestone.hit .n{background:var(--green-tint);color:var(--green)}
+.milestone b{font-size:14px;display:block}
+.milestone p{font-size:12.5px;color:var(--ink-3)}
+
+/* public profile hero */
+.pub-hero{background:#fff;border-bottom:1px solid var(--line);padding:44px 0 30px}
+.pub-hero .wrap{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.pub-hero .avatar-xl{width:104px;height:104px;font-size:34px}
+.pub-hero h1{font-size:32px}
+.pub-hero .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pub-hero .actions{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body data-view="private">
+
+<!-- ================= DEMO CONTROL ================= -->
+<div class="demo-bar">
+  <span class="lbl">Mockup demo</span>
+  <div class="demo-toggle">
+    <button id="v-private" class="on" onclick="setView('private')">Hacker</button>
+    <button id="v-community" onclick="setView('community')">Community</button>
+  </div>
+  <span class="notes-link" onclick="document.getElementById('notesPanel').classList.toggle('open')">Notes</span>
+</div>
+<div class="notes-panel" id="notesPanel">
+  <h3>What this mockup shows</h3>
+  <p><strong>Hacker:</strong> the logged-in dashboard for one event. A status stepper and checklist make every step obvious, then tabs for Referrals (auto-generated code + link, click/conversion stats, tiered rewards, leaderboard, social card generator) and Team finding (looking-for-team toggle, skill matches, idea board). The ETHGlobal builder profile is a separate product and lives outside this event dashboard.</p>
+  <p><strong>Community:</strong> the cohort dashboard for group sign-ups (a university club here), with a shared code, member roster, milestone rewards modeled on the ETHConf Community Partners tiers, and a community profile map.</p>
+  <p style="font-size:12px;color:#8a8a94">All names, numbers, reward tiers and matches are sample data. The persona (Ana Ferreira) is fictional. Reward specifics need locking with the team before anything ships.</p>
+</div>
+
+<!-- ================= SITE NAV ================= -->
+<div class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="#"><i>ETH</i>Global</a>
+    <div class="site-links"><a href="#">Events</a><a href="#">ETHConf</a><a href="#">Plus</a><a href="#">Packs</a><a href="#">Showcase</a><a href="#">Swag</a></div>
+    <div class="avatar-sm">AF</div>
+  </div>
+</div>
+
+<!-- ############################################################ -->
+<!-- ##################### PRIVATE DASHBOARD ################### -->
+<!-- ############################################################ -->
+<div class="private-only">
+  <div class="wrap event-head">
+    <div class="title-row">
+      <div class="event-badge">L</div>
+      <h1>ETHGlobal Lisbon 2026</h1>
+      <span class="chip green" style="margin-left:6px">You're confirmed</span>
+    </div>
+    <div class="tab-bar" id="tabBar">
+      <button class="on" data-tab="overview">Overview</button>
+      <button data-tab="referrals">Referrals</button>
+      <button data-tab="team">Team</button>
+      <button data-tab="schedule">Schedule</button>
+      <button data-tab="side">Side Events</button>
+    </div>
+  </div>
+
+  <!-- ============ TAB: OVERVIEW ============ -->
+  <div class="tab-pane on wrap" data-pane="overview">
+    <div class="card pad" style="margin-bottom:22px">
+      <div class="sec-title">👋 Welcome back, Ana</div>
+      <div class="sec-sub">Here's exactly where you are and what's next. No guessing.</div>
+      <div class="stepper">
+        <div class="step done"><div class="bubble">✓</div><b>Applied</b><span>Jun 14</span></div>
+        <div class="step done"><div class="bubble">✓</div><b>Accepted</b><span>Jun 20</span></div>
+        <div class="step done"><div class="bubble">✓</div><b>Staked</b><span>Jun 22</span></div>
+        <div class="step now"><div class="bubble">4</div><b>Find your team</b><span>1–5 people</span></div>
+        <div class="step"><div class="bubble">5</div><b>Pick a path</b><span>Continuity</span></div>
+        <div class="step"><div class="bubble">6</div><b>Check in</b><span>Fri Jul 24</span></div>
+      </div>
+    </div>
+
+    <div class="grid-main-side">
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Your next steps</div>
+          <div class="sec-sub">3 of 6 complete</div>
+          <div class="progress"><i style="width:50%"></i></div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>Confirm your spot</b><p>Stake received. It comes back when you submit a project.</p></div></div>
+              <div class="check-item done"><div class="tick">✓</div><div><b>Join the event Discord</b><p>Connected as @anaferreira.</p></div></div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>Share your referral link</b><p>12 confirmed hackers so far. 3 more to your next reward tier.</p></div><span class="act chip purple">Tier 2</span></div>
+          <div class="check-item"><div class="tick"></div><div><b>Find your team</b><p>You're marked as looking. 9 builders match what you're searching for in the Team tab.</p></div><a class="act btn btn-sm btn-primary" href="#" onclick="openTab('team');return false">Go to Team</a></div>
+          <div class="check-item"><div class="tick"></div><div><b>Pick your Continuity path</b><p>Classic, extend open source, or ship a feature. You can switch until hacking starts.</p></div><a class="act btn btn-sm btn-ghost" href="#">Choose</a></div>
+          <div class="check-item"><div class="tick"></div><div><b>Get your Pragma ticket</b><p>Confirmed hackers get the $49 ticket for the Jul 25 summit.</p></div><a class="act btn btn-sm btn-ghost" href="#">Get ticket</a></div>
+        </div>
+
+        <div class="card pad">
+          <div class="sec-title">Event details</div>
+          <div class="sec-sub">Everything logistics, one place.</div>
+          <p style="font-size:14px;margin-bottom:6px"><b>Dates:</b> July 24–26, 2026 · hacking runs 36 hours</p>
+          <p style="font-size:14px;margin-bottom:6px"><b>Venue:</b> Pavilhão Carlos Lopes, Av. Sidónio Pais 16, Lisboa</p>
+          <p style="font-size:14px;margin-bottom:16px"><b>Submissions due:</b> Sunday 09:00 WEST</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-sm btn-dark" href="#">Event schedule</a>
+            <a class="btn btn-sm btn-ghost" href="#">Venue &amp; travel guide</a>
+            <a class="btn btn-sm btn-ghost" href="#">Rules &amp; judging</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Your share card is ready</div>
+          <div class="sec-sub">Auto-generated the moment you confirmed. Post it, and your referral link rides along.</div>
+          <div class="social-card" style="margin-bottom:14px">
+            <img class="bg" src="https://ethglobal.storage/events/lisbon2026/photos/ftoov/md.jpg" alt="ETHGlobal Lisbon crowd photo">
+            <div class="in">
+              <span class="ev">ETHGlobal Lisbon · July 24–26</span>
+              <h3>I'm hacking at ETHGlobal Lisbon. Come build with me.</h3>
+              <div class="foot"><span class="avatar-sm">AF</span> Ana Ferreira <code>ethglob.al/r/ANA20</code></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-sm btn-dark" href="#">Post to 𝕏</a>
+            <a class="btn btn-sm btn-ghost" href="#">Download</a>
+            <a class="btn btn-sm btn-ghost" href="#" onclick="openTab('referrals');return false">Referral stats →</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <div class="sec-title">Connect</div>
+          <div class="sec-sub">Discord for day-to-day, NFC connections at the event.</div>
+          <div class="check-item done" style="border:0;padding-top:0"><div class="tick">✓</div><div><b>Discord connected</b><p>Your cohort channel: #lisbon-hackers</p></div></div>
+          <a class="btn btn-sm btn-ghost" href="#">View my event connections</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: REFERRALS ============ -->
+  <div class="tab-pane wrap" data-pane="referrals">
+    <div class="grid-main-side">
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Your referral link &amp; code</div>
+          <div class="sec-sub">Generated automatically when you confirmed. Friends who apply through it get fast-tracked review; you climb the reward tiers.</div>
+          <div class="share-box" style="margin-bottom:12px">Link: <code>ethglob.al/r/ANA20</code> <a class="btn btn-sm btn-dark" style="margin-left:auto" href="#">Copy</a></div>
+          <div class="share-box">Code (Pragma discount for friends): <code>ANA20</code> <a class="btn btn-sm btn-dark" style="margin-left:auto" href="#">Copy</a></div>
+          <p class="sample-note">Discount mechanic is a sample: hackathon is free, so the code applies to Pragma tickets or stake reductions. Lock the offer with the team.</p>
+        </div>
+
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">How your link is doing</div>
+          <div class="sec-sub">Clicks → sign-ups → confirmed, so you always see actual conversions.</div>
+          <div class="ref-tiles">
+            <div class="ref-tile"><b>214</b><span>Link clicks</span><div class="delta">+38 this week</div></div>
+            <div class="ref-tile"><b>31</b><span>Applications started</span><div class="delta">14% of clicks</div></div>
+            <div class="ref-tile"><b>12</b><span>Confirmed hackers</span><div class="delta">Counts toward tiers</div></div>
+          </div>
+          <div class="sec-title" style="font-size:15px">Reward tiers</div>
+          <div class="tier-track"><div class="fill" style="width:66%"></div></div>
+          <div class="tier-marks">
+            <div class="tier-mark hit"><div class="pt">✓</div><b>Starting</b><span>Personal link + code</span></div>
+            <div class="tier-mark hit"><div class="pt">✓</div><b>5 confirmed</b><span>Exclusive swag drop</span></div>
+            <div class="tier-mark"><div class="pt">15</div><b>15 confirmed</b><span>Free Pragma GA ticket</span></div>
+            <div class="tier-mark"><div class="pt">30</div><b>30 confirmed</b><span>Travel stipend, next event</span></div>
+          </div>
+          <p class="sample-note">Tier structure mirrors the ETHConf Community Partners milestones. Reward contents are placeholders to price with the team.</p>
+        </div>
+
+        <div class="card pad">
+          <div class="sec-title">Share cards</div>
+          <div class="sec-sub">A fresh card for every milestone: confirmed, team formed, project submitted, finalist. Each carries your link.</div>
+          <div class="grid-2">
+            <div class="social-card">
+              <img class="bg" src="https://ethglobal.storage/events/lisbon2026/photos/ftoov/md.jpg" alt="Crowd at ETHGlobal Lisbon">
+              <div class="in"><span class="ev">ETHGlobal Lisbon</span><h3 style="font-size:17px">I'm hacking at ETHGlobal Lisbon. Come build with me.</h3><div class="foot"><span class="avatar-sm">AF</span><code>ethglob.al/r/ANA20</code></div></div>
+            </div>
+            <div class="social-card">
+              <img class="bg" src="https://ethglobal.storage/events/lisbon2026/photos/obcgp/md.jpg" alt="Team on stage at ETHGlobal">
+              <div class="in"><span class="ev">Team formed</span><h3 style="font-size:17px">Team locked in for Lisbon. One spot left, Solidity devs DM me.</h3><div class="foot"><span class="avatar-sm">AF</span><code>ethglob.al/r/ANA20</code></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Referral leaderboard</div>
+          <div class="sec-sub">Lisbon 2026 · by confirmed hackers · sample names</div>
+          <div class="lb-row"><span class="lb-rank">1</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#f43f5e,#fb923c)">MB</span>@miguel_builds</span><span class="lb-count">27</span></div>
+          <div class="lb-row"><span class="lb-rank">2</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#10b981,#3b82f6)">SK</span>@sofia.eth</span><span class="lb-count">19</span></div>
+          <div class="lb-row me"><span class="lb-rank">3</span><span class="lb-name"><span class="avatar-sm">AF</span>You</span><span class="lb-count">12</span></div>
+          <div class="lb-row"><span class="lb-rank">4</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">TN</span>@tomasnunes</span><span class="lb-count">11</span></div>
+          <div class="lb-row"><span class="lb-rank">5</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">LC</span>@lauracodes</span><span class="lb-count">9</span></div>
+          <p class="sample-note">Top referrer gets a shoutout at the opening ceremony.</p>
+        </div>
+        <div class="card pad">
+          <div class="sec-title">Who you've referred</div>
+          <div class="sec-sub">Confirmed through your link.</div>
+          <div class="member-grid">
+            <span class="avatar-sm" style="background:linear-gradient(135deg,#f43f5e,#fb923c)">JP</span><span class="avatar-sm" style="background:linear-gradient(135deg,#10b981,#3b82f6)">RD</span><span class="avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">CM</span><span class="avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">IS</span><span class="avatar-sm" style="background:linear-gradient(135deg,#3b82f6,#10b981)">BV</span><span class="avatar-sm" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">NR</span><span class="avatar-sm">+6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: TEAM ============ -->
+  <div class="tab-pane wrap" data-pane="team">
+    <div class="card pad" style="margin-bottom:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <div>
+        <div class="sec-title" style="margin-bottom:2px">Are you looking for team members?</div>
+        <div class="sec-sub" style="margin-bottom:0">While this is on, you appear in matches and others can invite you. Teams are 1–5 people.</div>
+      </div>
+      <label class="switch" style="margin-left:auto"><input type="checkbox" checked><span class="sl"></span></label>
+      <span class="chip green">Visible in matching</span>
+    </div>
+    <div class="grid-main-side">
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Find teammates</div>
+          <div class="sec-sub">Filter for exactly what your team is missing. Sample profiles.</div>
+          <div class="filter-bar">
+            <input class="search" id="tfSearch" type="search" placeholder="Search by name, skill or SDK (e.g. Solidity, The Graph, design)…">
+            <div class="filter-row"><span class="lbl">Skills</span><span id="tfSkills"></span></div>
+            <div class="filter-row"><span class="lbl">Path</span><span id="tfPaths"></span></div>
+            <div class="filter-row"><span class="lbl">Region</span><span id="tfRegions"></span></div>
+            <div class="filter-row"><span class="lbl">Experience</span><span id="tfExp"></span></div>
+            <div class="filter-meta"><span id="tfCount"></span><span class="clear" id="tfClear">Clear filters</span></div>
+          </div>
+          <div id="tfResults"></div>
+        </div>
+
+        <div class="card pad">
+          <div class="sec-title">Idea board</div>
+          <div class="sec-sub">Post an idea, or ask to join one. Every card is a team forming in the open.</div>
+          <div class="idea">
+            <div class="head"><span class="avatar-sm" style="background:linear-gradient(135deg,#f43f5e,#fb923c)">MB</span><div><b>Cross-chain intent router on 1inch</b><span> · @miguel_builds · Extend OSS path</span></div><span class="slots">2 spots left</span></div>
+            <p>Have the repo, need a frontend dev and someone who knows Sui. Aiming at the 1inch and Sui tracks.</p>
+            <div class="foot"><span class="chip">Solidity ✓</span><span class="chip blue">Needs: Frontend</span><span class="chip blue">Needs: Sui</span><a class="btn btn-sm btn-dark" style="margin-left:auto" href="#">Ask to join</a></div>
+          </div>
+          <div class="idea">
+            <div class="head"><span class="avatar-sm" style="background:linear-gradient(135deg,#10b981,#3b82f6)">SK</span><div><b>ENS-native event ticketing</b><span> · @sofia.eth · Classic path</span></div><span class="slots">1 spot left</span></div>
+            <p>Ticketing flow where the ENS name is the ticket. Need one more Solidity dev, design is covered.</p>
+            <div class="foot"><span class="chip">Frontend ✓</span><span class="chip">Design ✓</span><span class="chip blue">Needs: Solidity</span><a class="btn btn-sm btn-dark" style="margin-left:auto" href="#">Ask to join</a></div>
+          </div>
+          <div class="idea" style="border-style:dashed;text-align:center;padding:24px">
+            <b style="font-size:14.5px">Have an idea? Put it on the board.</b>
+            <p style="margin:6px 0 12px">Takes a minute. You'll show up in matching immediately.</p>
+            <a class="btn btn-sm btn-primary" href="#">Post my idea</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Your team</div>
+          <div class="sec-sub">No team yet. Invites you send and receive show up here.</div>
+          <div class="check-item"><div class="tick"></div><div><b>1 pending invite</b><p>@rdias invited you to "zk-payroll". Respond within 48h.</p></div><a class="act btn btn-sm btn-ghost" href="#">Review</a></div>
+        </div>
+        <div class="card pad">
+          <div class="sec-title">How team formation works</div>
+          <div class="sec-sub">The steps, spelled out.</div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>1. Everyone applies individually</b><p>Acceptance is personal; teams don't affect your application.</p></div></div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>2. Turn on "looking for team"</b><p>You show up in matches and can browse the idea board.</p></div></div>
+          <div class="check-item"><div class="tick"></div><div><b>3. Invite or join</b><p>Send invites from matches, or ask to join an idea. Both sides confirm.</p></div></div>
+          <div class="check-item"><div class="tick"></div><div><b>4. Lock your team at check-in</b><p>Final roster confirms at the venue. You can still adjust until hacking starts.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- placeholder panes so the tab bar feels complete -->
+  <div class="tab-pane wrap" data-pane="schedule"><div class="card pad"><div class="sec-title">Schedule</div><p class="sec-sub">Personal agenda view: the event schedule with your workshops, feedback slots and Pragma sessions pinned. (Out of scope for this mockup; see the landing page mockup's schedule section.)</p></div></div>
+  <div class="tab-pane wrap" data-pane="side"><div class="card pad"><div class="sec-title">Side Events</div><p class="sec-sub">RSVP status for Onchain Lisbon Week side events, with your saved picks. (Out of scope for this mockup.)</p></div></div>
+</div>
+
+<!-- ############################################################ -->
+<!-- ##################### COMMUNITY DASHBOARD ################# -->
+<!-- ############################################################ -->
+<div class="community-only">
+  <div class="wrap event-head">
+    <div class="title-row">
+      <div class="comm-logo" style="width:44px;height:44px;font-size:16px;border-radius:14px">TL</div>
+      <h1>Técnico Lisboa Blockchain Club</h1>
+      <span class="chip purple" style="margin-left:6px">Community cohort · ETHGlobal Lisbon 2026</span>
+    </div>
+    <div class="tab-bar"><button class="on">Cohort dashboard</button><button>Members</button><button>Community profile</button><button>Settings</button></div>
+  </div>
+  <div class="wrap" style="padding:30px 0 90px">
+    <div class="grid-main-side">
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Cohort sign-ups</div>
+          <div class="sec-sub">Everyone who applied with your community code is grouped under Técnico Lisboa automatically.</div>
+          <div class="ref-tiles">
+            <div class="ref-tile"><b>612</b><span>Link clicks</span><div class="delta">+104 this week</div></div>
+            <div class="ref-tile"><b>54</b><span>Applications</span><div class="delta">9% of clicks</div></div>
+            <div class="ref-tile"><b>28</b><span>Confirmed hackers</span><div class="delta">Tier 2 unlocked</div></div>
+          </div>
+          <div class="share-box" style="margin-bottom:6px">Community link: <code>ethglob.al/c/TECNICO</code> <a class="btn btn-sm btn-dark" style="margin-left:auto" href="#">Copy</a></div>
+        </div>
+
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Milestone rewards</div>
+          <div class="sec-sub">Same structure as the ETHConf Community Partners program, tuned for hackathons. Sample perks; identical for every community at the same milestone.</div>
+          <div class="milestone hit"><div class="n">Start</div><div><b>Community link + code</b><p>Auto-generated on acceptance. Tracks clicks, applications and confirmed hackers.</p></div></div>
+          <div class="milestone hit"><div class="n">10</div><div><b>Shoutout + community badge</b><p>Official shoutout on 𝕏 and a community badge on every member's profile.</p></div></div>
+          <div class="milestone hit"><div class="n">25</div><div><b>Listed on the event page</b><p>Community profile linked from ethglobal.com/events/lisbon2026, plus reserved seating block.</p></div></div>
+          <div class="milestone"><div class="n">50</div><div><b>Onsite meetup + event grant</b><p>Official community meetup at the venue and a grant for a local event back home.</p></div></div>
+        </div>
+
+        <div class="card pad">
+          <div class="sec-title">Community profile</div>
+          <div class="sec-sub">Public page with your cohort's map and stats. Communities can also join larger networks ("communities within communities": Técnico Lisboa is part of the Portugal University Network).</div>
+          <div class="map-box">
+            <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="Map of events this community attended">
+            <span class="map-dot" style="left:44.7%;top:28.5%"><span class="tip">Lisbon 2026 · 28 confirmed</span></span>
+            <span class="map-dot" style="left:47.4%;top:28.5%"><span class="tip">Cannes 2026 · 9 attended</span></span>
+            <span class="map-dot" style="left:29.4%;top:27.4%"><span class="tip">New York 2026 · 4 attended</span></span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-mini"><b>41</b><span>Total hackers</span></div>
+            <div class="stat-mini"><b>3</b><span>Events</span></div>
+            <div class="stat-mini"><b>5</b><span>Prizes won</span></div>
+            <div class="stat-mini"><b>#2</b><span>PT community</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Members · Lisbon 2026</div>
+          <div class="sec-sub">28 confirmed under this cohort.</div>
+          <div class="member-grid">
+            <span class="avatar-sm">AF</span><span class="avatar-sm" style="background:linear-gradient(135deg,#f43f5e,#fb923c)">MB</span><span class="avatar-sm" style="background:linear-gradient(135deg,#10b981,#3b82f6)">SK</span><span class="avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">TN</span><span class="avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">LC</span><span class="avatar-sm" style="background:linear-gradient(135deg,#3b82f6,#10b981)">JP</span><span class="avatar-sm" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">RD</span><span class="avatar-sm" style="background:linear-gradient(135deg,#fb923c,#f43f5e)">CM</span><span class="avatar-sm">+20</span>
+          </div>
+          <a class="btn btn-sm btn-ghost" style="margin-top:16px" href="#">Manage members</a>
+        </div>
+        <div class="card pad" style="margin-bottom:22px">
+          <div class="sec-title">Community leaderboard</div>
+          <div class="sec-sub">Lisbon 2026 cohorts · confirmed hackers · sample</div>
+          <div class="lb-row"><span class="lb-rank">1</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#f43f5e,#fb923c)">LX</span>Lisboa DAO</span><span class="lb-count">34</span></div>
+          <div class="lb-row me"><span class="lb-rank">2</span><span class="lb-name"><span class="comm-logo" style="width:30px;height:30px;font-size:11px;border-radius:9px">TL</span>Técnico Lisboa</span><span class="lb-count">28</span></div>
+          <div class="lb-row"><span class="lb-rank">3</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">UP</span>U.Porto Web Devs</span><span class="lb-count">17</span></div>
+          <div class="lb-row"><span class="lb-rank">4</span><span class="lb-name"><span class="avatar-sm" style="background:linear-gradient(135deg,#10b981,#3b82f6)">MD</span>Madrid Builders</span><span class="lb-count">13</span></div>
+        </div>
+        <div class="card pad">
+          <div class="sec-title">Weekly cohort update</div>
+          <div class="sec-sub">Auto-emailed to organizers every Monday.</div>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:6px">Confirmed via your code: <b>28</b></p>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:6px">Current milestone: <b>25 · Listed on event page</b></p>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:14px">Suggested action: <b>22 more to unlock the onsite meetup. Push the group-travel thread.</b></p>
+          <a class="btn btn-sm btn-ghost" href="#">Email preview</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setView(v){
+  document.body.dataset.view = v;
+  ['private','community'].forEach(k => document.getElementById('v-'+k).classList.toggle('on', k===v));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function openTab(name){
+  document.querySelectorAll('#tabBar button').forEach(b => b.classList.toggle('on', b.dataset.tab===name));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('on', p.dataset.pane===name));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.getElementById('tabBar').addEventListener('click', e => { if(e.target.dataset.tab) openTab(e.target.dataset.tab); });
+
+/* ============ teammate finder: filterable matches (sample data) ============ */
+const GRADS = ['#f43f5e,#fb923c','#10b981,#3b82f6','#8b5cf6,#ec4899','#f59e0b,#ef4444','#3b82f6,#10b981','#ec4899,#8b5cf6','#fb923c,#f43f5e','#0ea5e9,#8b5cf6'];
+const MATCHES = [
+  {h:'@rdias', city:'Porto, PT', region:'Portugal', skills:['Rust','ZK','Backend'], sdks:['Sui'], path:'Classic', exp:'Veteran', pct:92, init:'RD'},
+  {h:'@camille.m', city:'Paris, FR', region:'EU', skills:['Design','Frontend'], sdks:['ENS'], path:'Classic', exp:'First hackathon', pct:87, init:'CM'},
+  {h:'@izzy_sol', city:'Berlin, DE', region:'EU', skills:['Solidity','Backend'], sdks:['The Graph'], path:'Extend OSS', exp:'Veteran', pct:81, init:'IS'},
+  {h:'@tomasnunes', city:'Lisboa, PT', region:'Portugal', skills:['Frontend','Mobile'], sdks:['World'], path:'Ship a feature', exp:'Veteran', pct:78, init:'TN'},
+  {h:'@lauracodes', city:'Madrid, ES', region:'EU', skills:['Solidity','ZK'], sdks:['1inch'], path:'Classic', exp:'First hackathon', pct:74, init:'LC'},
+  {h:'@jpereira', city:'Braga, PT', region:'Portugal', skills:['Backend','Data'], sdks:['Hedera','0G'], path:'Extend OSS', exp:'Veteran', pct:71, init:'JP'},
+  {h:'@nina.builds', city:'Remote', region:'Remote', skills:['Design','Mobile'], sdks:['ENS'], path:'Ship a feature', exp:'First hackathon', pct:66, init:'NB'},
+  {h:'@viktor_k', city:'Warsaw, PL', region:'EU', skills:['Rust','Data'], sdks:['Sui','0G'], path:'Classic', exp:'Veteran', pct:63, init:'VK'},
+  {h:'@ines.eth', city:'Lisboa, PT', region:'Portugal', skills:['Solidity','Frontend'], sdks:['Uniswap','ENS'], path:'Extend OSS', exp:'Veteran', pct:89, init:'IE'}
+];
+const F = { skills:new Set(), paths:new Set(), regions:new Set(), exp:new Set(), q:'' };
+const OPTS = {
+  skills:['Solidity','Frontend','Design','Rust','ZK','Backend','Mobile','Data'],
+  paths:['Classic','Extend OSS','Ship a feature'],
+  regions:['Portugal','EU','Remote'],
+  exp:['First hackathon','Veteran']
+};
+function chipRow(id, key){
+  document.getElementById(id).innerHTML = OPTS[key].map(o => `<button class="fchip" data-k="${key}" data-v="${o}">${o}</button>`).join(' ');
+}
+chipRow('tfSkills','skills'); chipRow('tfPaths','paths'); chipRow('tfRegions','regions'); chipRow('tfExp','exp');
+document.querySelectorAll('.fchip').forEach(c => c.addEventListener('click', () => {
+  const set = F[c.dataset.k === 'paths' ? 'paths' : c.dataset.k === 'regions' ? 'regions' : c.dataset.k];
+  set.has(c.dataset.v) ? set.delete(c.dataset.v) : set.add(c.dataset.v);
+  c.classList.toggle('on');
+  renderMatches();
+}));
+document.getElementById('tfSearch').addEventListener('input', e => { F.q = e.target.value.toLowerCase(); renderMatches(); });
+document.getElementById('tfClear').addEventListener('click', () => {
+  F.skills.clear(); F.paths.clear(); F.regions.clear(); F.exp.clear(); F.q='';
+  document.getElementById('tfSearch').value='';
+  document.querySelectorAll('.fchip').forEach(c => c.classList.remove('on'));
+  renderMatches();
+});
+function renderMatches(){
+  const out = MATCHES.filter(m => {
+    if (F.skills.size && ![...F.skills].some(s => m.skills.includes(s))) return false;
+    if (F.paths.size && !F.paths.has(m.path)) return false;
+    if (F.regions.size && !F.regions.has(m.region)) return false;
+    if (F.exp.size && !F.exp.has(m.exp)) return false;
+    if (F.q){
+      const hay = (m.h + ' ' + m.city + ' ' + m.skills.join(' ') + ' ' + m.sdks.join(' ') + ' ' + m.path).toLowerCase();
+      if (!hay.includes(F.q)) return false;
+    }
+    return true;
+  });
+  document.getElementById('tfCount').textContent = `Showing ${out.length} of ${MATCHES.length} builders looking for a team`;
+  document.getElementById('tfResults').innerHTML = out.length ? out.map((m,i) => `
+    <div class="match">
+      <span class="avatar-sm" style="background:linear-gradient(135deg,${GRADS[i%GRADS.length]})">${m.init}</span>
+      <div><b>${m.h} · ${m.city}</b>
+        <div class="skills">${m.skills.map(s=>`<span class="chip">${s}</span>`).join('')}${m.sdks.map(s=>`<span class="chip blue">${s}</span>`).join('')}<span class="chip purple">${m.path}</span>${m.exp==='First hackathon'?'<span class="chip green">First hackathon</span>':''}</div>
+      </div>
+      <div class="pct"><b>${m.pct}%</b><span>match</span><a class="btn btn-sm btn-primary" style="margin-top:6px" href="#">Invite</a></div>
+    </div>`).join('')
+    : `<div class="no-match">No one matches those filters yet. Widen a filter, or post your idea to the board so they find you.</div>`;
+}
+renderMatches();
+</script>
+</body>
+</html>
