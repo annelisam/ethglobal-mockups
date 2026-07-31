@@ -181,20 +181,19 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
 .lb-count{font-weight:800;font-variant-numeric:tabular-nums}
 
 /* ---------- social card ---------- */
-.social-card{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:1200/630;background:#0e1220;color:#fff;box-shadow:var(--shadow-lift)}
-.social-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
-.social-card .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(150deg,rgba(10,14,26,.95) 0%,rgba(10,14,26,.72) 48%,rgba(47,111,228,.42) 100%)}
-.social-card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;z-index:3;background:linear-gradient(90deg,var(--blue),#8b5cf6,#ec4899)}
-.social-card .in{position:relative;z-index:2;padding:26px;display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.social-card{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:1200/630;background:#0b0e1a;color:#fff;box-shadow:var(--shadow-lift)}
+.social-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.social-card .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,14,26,.3) 0%,rgba(11,14,26,.45) 45%,rgba(11,14,26,.94) 100%)}
+.social-card .in{position:relative;z-index:2;padding:22px 24px;display:flex;flex-direction:column;height:100%}
 .social-card .brand{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.social-card .ev{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8FB8FF}
-.social-card .wm{font-size:12.5px;font-weight:800}.social-card .wm i{font-style:normal;color:#8FB8FF}
-.social-card h3{font-size:clamp(20px,3vw,30px);font-weight:800;line-height:1.15;max-width:440px;letter-spacing:-.02em}
-.social-card .stat-line{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.social-card .stat-chip{background:rgba(255,255,255,.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:11.5px;font-weight:700}
-.social-card .foot{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700}
-.social-card .foot .avatar-sm{border:2px solid #fff}
-.social-card .foot code{font-family:ui-monospace,Menlo,monospace;background:var(--blue);color:#fff;padding:5px 12px;border-radius:999px;font-size:12px;margin-left:auto}
+.social-card .wm{font-size:13px;font-weight:800}.social-card .wm i{font-style:normal;color:#8FB8FF}
+.social-card .ev{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.social-card .bottom{margin-top:auto}
+.social-card .kick{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8FB8FF;margin-bottom:6px}
+.social-card h3{font-size:clamp(19px,2.6vw,27px);font-weight:800;line-height:1.15;letter-spacing:-.02em;max-width:430px;margin-bottom:14px}
+.social-card .foot{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;border-top:1px solid rgba(255,255,255,.16);padding-top:12px}
+.social-card .foot .avatar-sm{border:2px solid rgba(255,255,255,.9)}
+.social-card .foot code{font-family:ui-monospace,Menlo,monospace;background:#fff;color:var(--ink);font-weight:700;padding:5px 12px;border-radius:999px;font-size:12px;margin-left:auto}
 /* card studio */
 .card-picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .card-picker button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:all .12s}
@@ -205,14 +204,21 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
 .caption-box b{color:var(--ink)}
 
 /* ---------- team ---------- */
-.match{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-.match:last-child{border-bottom:0}
-.match .avatar-sm{width:44px;height:44px;font-size:15px;flex-shrink:0}
-.match b{font-size:14.5px;display:block}
-.match .skills{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
-.match .pct{margin-left:auto;text-align:right;flex-shrink:0}
-.match .pct b{font-size:18px;color:var(--blue-dark)}
-.match .pct span{font-size:10.5px;color:var(--ink-3);display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.team-strip{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.invite-row{display:flex;align-items:center;gap:12px;background:var(--blue-tint);border:1px solid #d5e4ff;border-radius:var(--radius-sm);padding:12px 16px;flex:1;min-width:300px}
+.invite-row b{font-size:14px;display:block}
+.invite-row p{font-size:12.5px;color:var(--ink-2)}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.match-grid{grid-template-columns:1fr}}
+.match-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;background:#fff;display:flex;flex-direction:column;gap:10px;transition:transform .15s ease,box-shadow .15s ease}
+.match-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.match-card .top{display:flex;align-items:center;gap:10px}
+.match-card .avatar-sm{width:40px;height:40px;font-size:13px;flex-shrink:0}
+.match-card .top b{font-size:14px;display:block;line-height:1.2}
+.match-card .loc{font-size:12px;color:var(--ink-3);font-weight:600}
+.match-card .pct-pill{margin-left:auto;background:var(--green-tint);color:var(--green);font-weight:800;font-size:12px;border-radius:999px;padding:5px 10px;flex-shrink:0}
+.match-card .skills{display:flex;gap:6px;flex-wrap:wrap}
+.match-card .actions{display:flex;gap:8px;margin-top:auto}
 .idea{padding:18px;border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px;background:#fff;transition:transform .15s,box-shadow .15s}
 .idea:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .idea .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
@@ -353,12 +359,12 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
             <img class="bg" src="https://ethglobal.storage/events/lisbon2026/photos/ftoov/md.jpg" alt="ETHGlobal Lisbon crowd photo">
             <div class="scrim"></div>
             <div class="in">
-              <div class="brand"><span class="ev">ETHGlobal Lisbon · July 24–26</span><span class="wm"><i>ETH</i>Global</span></div>
-              <div>
+              <div class="brand"><span class="wm"><i>ETH</i>Global</span><span class="ev">July 24–26 · Lisboa</span></div>
+              <div class="bottom">
+                <div class="kick">Confirmed hacker</div>
                 <h3>I'm hacking at ETHGlobal Lisbon. Come build with me.</h3>
-                <div class="stat-line"><span class="stat-chip">36 hours</span><span class="stat-chip">$125K+ in prizes</span><span class="stat-chip">Free for accepted hackers</span></div>
+                <div class="foot"><span class="avatar-sm">AF</span> Ana Ferreira <code>ethglob.al/r/ANA20</code></div>
               </div>
-              <div class="foot"><span class="avatar-sm">AF</span> Ana Ferreira <code>ethglob.al/r/ANA20</code></div>
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -448,13 +454,21 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
 
   <!-- ============ TAB: TEAM ============ -->
   <div class="tab-pane wrap" data-pane="team">
-    <div class="card pad" style="margin-bottom:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+    <div class="card pad team-strip">
       <div>
-        <div class="sec-title" style="margin-bottom:2px">Are you looking for team members?</div>
-        <div class="sec-sub" style="margin-bottom:0">While this is on, you appear in matches and others can invite you. Teams are 1–5 people.</div>
+        <div class="sec-title" style="margin-bottom:2px">Your team</div>
+        <div class="sec-sub" style="margin-bottom:0">No team yet. Teams are 1–5 people; most form right here.</div>
       </div>
-      <label class="switch" style="margin-left:auto"><input type="checkbox" checked><span class="sl"></span></label>
-      <span class="chip green">Visible in matching</span>
+      <div class="invite-row">
+        <span class="avatar-sm" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">RD</span>
+        <div style="flex:1"><b>@rdias invited you to "zk-payroll"</b><p>Rust, ZK · Classic path · respond within 48h</p></div>
+        <a class="btn btn-sm btn-primary" href="#">Accept</a>
+        <a class="btn btn-sm btn-ghost" href="#">Decline</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <label class="switch"><input type="checkbox" checked><span class="sl"></span></label>
+        <span class="chip green">Visible in matching</span>
+      </div>
     </div>
     <div class="grid-main-side">
       <div>
@@ -469,7 +483,7 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
             <div class="filter-row"><span class="lbl">Experience</span><span id="tfExp"></span></div>
             <div class="filter-meta"><span id="tfCount"></span><span class="clear" id="tfClear">Clear filters</span></div>
           </div>
-          <div id="tfResults"></div>
+          <div class="match-grid" id="tfResults"></div>
         </div>
 
         <div class="card pad">
@@ -495,17 +509,20 @@ body[data-view="community"] .private-only,body[data-view="community"] .public-on
 
       <div>
         <div class="card pad" style="margin-bottom:22px">
-          <div class="sec-title">Your team</div>
-          <div class="sec-sub">No team yet. Invites you send and receive show up here.</div>
-          <div class="check-item"><div class="tick"></div><div><b>1 pending invite</b><p>@rdias invited you to "zk-payroll". Respond within 48h.</p></div><a class="act btn btn-sm btn-ghost" href="#">Review</a></div>
+          <div class="sec-title">How team formation works</div>
+          <div class="sec-sub">Four steps. You're on step 3.</div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>1. Apply solo</b><p>Acceptance is personal; a team never affects your application.</p></div></div>
+          <div class="check-item done"><div class="tick">✓</div><div><b>2. Turn on matching</b><p>You appear in results and can browse the idea board.</p></div></div>
+          <div class="check-item"><div class="tick"></div><div><b>3. Invite or join</b><p>Both sides confirm. Respond to invites within 48h.</p></div></div>
+          <div class="check-item"><div class="tick"></div><div><b>4. Confirm at check-in</b><p>Rosters stay editable until hacking starts Friday evening.</p></div></div>
         </div>
         <div class="card pad">
-          <div class="sec-title">How team formation works</div>
-          <div class="sec-sub">The steps, spelled out.</div>
-          <div class="check-item done"><div class="tick">✓</div><div><b>1. Everyone applies individually</b><p>Acceptance is personal; teams don't affect your application.</p></div></div>
-          <div class="check-item done"><div class="tick">✓</div><div><b>2. Turn on "looking for team"</b><p>You show up in matches and can browse the idea board.</p></div></div>
-          <div class="check-item"><div class="tick"></div><div><b>3. Invite or join</b><p>Send invites from matches, or ask to join an idea. Both sides confirm.</p></div></div>
-          <div class="check-item"><div class="tick"></div><div><b>4. Lock your team at check-in</b><p>Final roster confirms at the venue. You can still adjust until hacking starts.</p></div></div>
+          <div class="sec-title">Popular filters right now</div>
+          <div class="sec-sub">What other solo hackers search for.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="chip blue">Solidity</span><span class="chip blue">Frontend</span><span class="chip blue">The Graph</span><span class="chip blue">Design</span><span class="chip blue">ZK</span><span class="chip blue">First hackathon</span>
+          </div>
+          <p class="sample-note">Sample data. Wire to live filter analytics.</p>
         </div>
       </div>
     </div>
@@ -663,35 +680,33 @@ function renderMatches(){
   });
   document.getElementById('tfCount').textContent = `Showing ${out.length} of ${MATCHES.length} builders looking for a team`;
   document.getElementById('tfResults').innerHTML = out.length ? out.map((m,i) => `
-    <div class="match">
-      <span class="avatar-sm" style="background:linear-gradient(135deg,${GRADS[i%GRADS.length]})">${m.init}</span>
-      <div><b>${m.h} · ${m.city}</b>
-        <div class="skills">${m.skills.map(s=>`<span class="chip">${s}</span>`).join('')}${m.sdks.map(s=>`<span class="chip blue">${s}</span>`).join('')}<span class="chip purple">${m.path}</span>${m.exp==='First hackathon'?'<span class="chip green">First hackathon</span>':''}</div>
+    <div class="match-card">
+      <div class="top">
+        <span class="avatar-sm" style="background:linear-gradient(135deg,${GRADS[i%GRADS.length]})">${m.init}</span>
+        <div><b>${m.h}</b><span class="loc">${m.city} · ${m.exp}</span></div>
+        <span class="pct-pill">${m.pct}%</span>
       </div>
-      <div class="pct"><b>${m.pct}%</b><span>match</span><a class="btn btn-sm btn-primary" style="margin-top:6px" href="#">Invite</a></div>
+      <div class="skills">${m.skills.map(s=>`<span class="chip">${s}</span>`).join('')}${m.sdks.map(s=>`<span class="chip blue">${s}</span>`).join('')}<span class="chip purple">${m.path}</span></div>
+      <div class="actions"><a class="btn btn-sm btn-primary" style="flex:1;justify-content:center" href="#">Invite</a><a class="btn btn-sm btn-ghost" href="#">Profile</a></div>
     </div>`).join('')
-    : `<div class="no-match">No one matches those filters yet. Widen a filter, or post your idea to the board so they find you.</div>`;
+    : `<div class="no-match" style="grid-column:1/-1">No one matches those filters yet. Widen a filter, or post your idea so they find you.</div>`;
 }
 renderMatches();
 
 /* ============ share card studio (sample milestones; captions prewritten, editable before posting) ============ */
 const CARD_PHOTO = p => `https://ethglobal.storage/events/lisbon2026/photos/${p}/md.jpg`;
 const CARDS = {
-  confirmed: {label:'Confirmed', locked:false, ev:'ETHGlobal Lisbon · July 24–26', photo:'ftoov',
+  confirmed: {label:'Confirmed', locked:false, kick:'Confirmed hacker', photo:'ftoov',
     h:"I'm hacking at ETHGlobal Lisbon. Come build with me.",
-    stats:['36 hours','$125K+ in prizes','Free for accepted hackers'],
     cap:"I'm confirmed for ETHGlobal Lisbon, July 24–26. 36 hours, $125K+ in prizes, free for accepted hackers. Apply through my link: ethglob.al/r/ANA20"},
-  team: {label:'Team formed', locked:false, ev:'Team formed · ETHGlobal Lisbon', photo:'nxmtr',
+  team: {label:'Team formed', locked:false, kick:'Team formed', photo:'nxmtr',
     h:'Team set for Lisbon. One spot left for a Solidity dev.',
-    stats:['4 of 5 seats filled','Extend OSS path'],
     cap:'Our ETHGlobal Lisbon team has one spot left for a Solidity dev. DM me, or start here: ethglob.al/r/ANA20'},
-  submitted: {label:'Project submitted', locked:true, ev:'Shipped · ETHGlobal Lisbon', photo:'a1u3f',
+  submitted: {label:'Project submitted', locked:true, kick:'Shipped', photo:'a1u3f',
     h:'Built in 36 hours. Submitted before the Sunday deadline.',
-    stats:['Submitted Sun 09:00','Built on 3 partner SDKs'],
     cap:'We shipped our ETHGlobal Lisbon project in 36 hours. Watch the finals live: ethglob.al/r/ANA20'},
-  finalist: {label:'Finalist', locked:true, ev:'Finalist · ETHGlobal Lisbon', photo:'obcgp',
+  finalist: {label:'Finalist', locked:true, kick:'Finalist', photo:'obcgp',
     h:'Finalist at ETHGlobal Lisbon.',
-    stats:['Top 10 of 210 projects','Closing ceremony demo'],
     cap:'Our project is a finalist at ETHGlobal Lisbon. Demoing live at the closing ceremony: ethglob.al/r/ANA20'}
 };
 let curCard = 'confirmed';
@@ -703,9 +718,12 @@ function renderStudio(){
     <img class="bg" src="${CARD_PHOTO(c.photo)}" alt="${c.label} share card background">
     <div class="scrim"></div>
     <div class="in">
-      <div class="brand"><span class="ev">${c.ev}</span><span class="wm"><i>ETH</i>Global</span></div>
-      <div><h3>${c.h}</h3><div class="stat-line">${c.stats.map(s=>`<span class="stat-chip">${s}</span>`).join('')}</div></div>
-      <div class="foot"><span class="avatar-sm">AF</span> Ana Ferreira <code>ethglob.al/r/ANA20</code></div>
+      <div class="brand"><span class="wm"><i>ETH</i>Global</span><span class="ev">July 24–26 · Lisboa</span></div>
+      <div class="bottom">
+        <div class="kick">${c.kick}</div>
+        <h3>${c.h}</h3>
+        <div class="foot"><span class="avatar-sm">AF</span> Ana Ferreira <code>ethglob.al/r/ANA20</code></div>
+      </div>
     </div>`;
   document.getElementById('studioCaption').innerHTML = `<b>Caption:</b> ${c.cap}`;
 }

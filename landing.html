@@ -386,23 +386,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .map-dot .tip{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#111114;color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:5}
 .map-dot:hover .tip{opacity:1}
 
-/* workshops playlist */
-.playlist-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start}
-@media(max-width:900px){.playlist-grid{grid-template-columns:1fr}}
-.pl-list{display:flex;flex-direction:column;gap:10px;max-height:480px;overflow-y:auto;padding-right:6px}
-.pl-item{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;transition:transform .15s ease,box-shadow .15s ease}
-.pl-item:hover{transform:translateX(4px);box-shadow:var(--shadow)}
-.pl-thumb{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--blue-tint)}
-.pl-thumb img{width:100%;height:100%;object-fit:cover}
-.pl-thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(17,17,20,.25);color:#fff;font-size:20px}
-.pl-thumb .soon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--blue-tint);color:var(--blue-dark);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.pl-item b{font-size:13.5px;display:block;line-height:1.3}
-.pl-item span{font-size:12px;color:var(--ink-3)}
-.soon-hero{display:flex;align-items:center;justify-content:center;background:var(--blue-tint);border:1px dashed #d5e4ff;box-shadow:none}
-.soon-inner{text-align:center;max-width:400px;padding:30px}
-.soon-badge{display:inline-block;background:var(--blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:14px}
-.soon-inner b{display:block;font-size:18px;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}
-.soon-inner p{font-size:13.5px;color:var(--ink-2)}
+/* workshops grid */
+.ws-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:960px){.ws-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ws-grid{grid-template-columns:1fr}}
+.ws-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+a.ws-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.ws-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--blue-tint)}
+.ws-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+a.ws-card:hover .ws-thumb img{transform:scale(1.05)}
+.ws-thumb .dur{position:absolute;right:8px;bottom:8px;background:rgba(17,17,20,.85);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;font-variant-numeric:tabular-nums}
+.ws-thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(17,17,20,.32);opacity:0;transition:opacity .15s ease}
+a.ws-card:hover .ws-thumb .play{opacity:1}
+.ws-thumb .play i{font-style:normal;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:16px;padding-left:3px}
+.ws-thumb.soon img{filter:grayscale(1);opacity:.45}
+.ws-thumb .soon-tag{position:absolute;left:8px;top:8px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.ws-body{display:block;padding:12px 14px 14px}
+.ws-body b{display:block;font-size:14px;line-height:1.3;letter-spacing:-.01em}
+.ws-body span{font-size:12px;color:var(--ink-3);font-weight:600}
 
 /* post-event: winners, workshops, data */
 .video-hero{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lift);aspect-ratio:16/9;background:#000}
@@ -660,63 +661,6 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   </div>
 </section>
 
-<!-- ================= COMMUNITIES ATTENDING (pre only) ================= -->
-<section class="pre-only" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Communities attending</div>
-      <h2>Clubs are coming in cohorts</h2>
-      <p class="sub">University blockchain clubs and city communities sign up together, travel together and hack together. Bring yours.</p>
-    </div>
-    <div class="co-carousel">
-      <div class="co-track" id="commTrack">
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)">DV</span>DeVinci Blockchain</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f43f5e,#f59e0b)">ES</span>ETHSpain</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#10b981,#3b82f6)">TL</span>Técnico Lisboa Blockchain Club</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">LD</span>Lisboa DAO</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">UP</span>U.Porto Web Devs</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#0ea5e9,#10b981)">MB</span>Madrid Builders</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">BB</span>Berlin Blockchain Week Collective</span>
-        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#fb923c,#f43f5e)">WE</span>Warsaw ETH Circle</span>
-      </div>
-    </div>
-    <p class="sample-note">Sample roster and logos. Wire to confirmed community cohorts from HQ; clubs earn milestone rewards as their cohort grows.</p>
-  </div>
-</section>
-
-<!-- ================= WHO'S COMING: WORLD MAP (pre only) ================= -->
-<section class="pre-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Who's coming</div>
-      <h2>Builders are booking flights</h2>
-      <p class="sub">Confirmed hackers by home city, updating as acceptance rounds close.</p>
-    </div>
-    <div class="card" style="padding:26px">
-      <div class="map-box">
-        <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of cities confirmed ETHGlobal Lisbon hackers are traveling from">
-        <span class="map-dot big" style="left:47.5%;top:28.5%"><span class="tip">Lisboa · 46 hackers</span></span>
-        <span class="map-dot" style="left:47.6%;top:27.2%"><span class="tip">Porto · 18</span></span>
-        <span class="map-dot" style="left:49%;top:27.6%"><span class="tip">Madrid · 15</span></span>
-        <span class="map-dot" style="left:50.6%;top:27%"><span class="tip">Barcelona · 11</span></span>
-        <span class="map-dot" style="left:50.6%;top:22.8%"><span class="tip">Paris · 14</span></span>
-        <span class="map-dot" style="left:50%;top:21.4%"><span class="tip">London · 13</span></span>
-        <span class="map-dot" style="left:53.7%;top:20.8%"><span class="tip">Berlin · 16</span></span>
-        <span class="map-dot" style="left:55.8%;top:21%"><span class="tip">Warsaw · 8</span></span>
-        <span class="map-dot" style="left:58.1%;top:27.2%"><span class="tip">Istanbul · 6</span></span>
-        <span class="map-dot" style="left:29.4%;top:27.4%"><span class="tip">New York · 9</span></span>
-        <span class="map-dot" style="left:27.9%;top:25.7%"><span class="tip">Toronto · 4</span></span>
-        <span class="map-dot" style="left:37.1%;top:63.1%"><span class="tip">São Paulo · 7</span></span>
-        <span class="map-dot" style="left:50.9%;top:46.4%"><span class="tip">Lagos · 5</span></span>
-        <span class="map-dot" style="left:71.6%;top:42.8%"><span class="tip">Bangalore · 8</span></span>
-        <span class="map-dot" style="left:78.8%;top:49.3%"><span class="tip">Singapore · 3</span></span>
-        <span class="map-dot" style="left:88.8%;top:30.2%"><span class="tip">Tokyo · 5</span></span>
-      </div>
-      <p class="sample-note">Sample cities and counts. Wire to the HQ city breakdown at build time; internal numbers stay off the public build unless approved.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ================= SPEAKERS / JUDGES / MENTORS ================= -->
 <section id="speakers" class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
@@ -898,26 +842,20 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 <section id="workshops">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker pre-only">Workshops</div>
-      <div class="kicker post-only">Watch it back</div>
-      <h2 class="pre-only">29+ workshops across the weekend</h2>
+      <div class="kicker">Workshops</div>
+      <h2 class="pre-only">29+ workshops. Bring a laptop.</h2>
       <h2 class="post-only">Every workshop, recorded</h2>
-      <p class="sub pre-only">Hands-on sessions from partner engineering teams, running Friday and Saturday. Recordings appear here during the event.</p>
-      <p class="sub post-only">The full Lisbon playlist: 29+ partner sessions, the Pragma talks and the closing ceremony livestream.</p>
+      <p class="sub pre-only">Partner engineers run hands-on sessions Friday and Saturday. Every session is recorded and published here.</p>
+      <p class="sub post-only">29+ sessions from the weekend, all on the official playlist.</p>
     </div>
-    <div class="playlist-grid">
-      <div>
-        <div class="video-hero post-only">
-          <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLWgAODGnD_is&rel=0" title="ETHGlobal Lisbon workshops playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-hero pre-only soon-hero">
-          <div class="soon-inner"><span class="soon-badge">Coming soon</span><b>Workshop recordings land here when the event goes live</b><p>Follow the schedule below. Every session is recorded and published to the ETHGlobal channel.</p></div>
-        </div>
-        <p class="post-only" style="font-size:13.5px;color:var(--ink-3);margin-top:10px">Playing the full playlist. Pick a session from the list, or <a href="https://www.youtube.com/playlist?list=PLWgAODGnD_is" style="color:var(--blue-dark);font-weight:700">open it on YouTube →</a></p>
-      </div>
-      <div class="pl-list" id="plList"><!-- populated by JS from WORKSHOPS data --></div>
+    <div class="video-hero post-only" style="margin-bottom:20px">
+      <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLWgAODGnD_is&rel=0" title="ETHGlobal Lisbon workshops playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
-    <p class="sample-note">Sample session list. Wire titles, durations and per-video links to the published playlist at build time.</p>
+    <div class="ws-grid" id="wsGrid"><!-- populated by JS from WORKSHOPS data --></div>
+    <div class="post-only" style="margin-top:20px">
+      <a class="btn btn-ghost" href="https://www.youtube.com/playlist?list=PLWgAODGnD_is" target="_blank" rel="noopener">Open the full playlist →</a>
+    </div>
+    <p class="sample-note">Sample sessions. Wire titles, durations and per-video links to the published playlist at build time.</p>
   </div>
 </section>
 
@@ -957,6 +895,63 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   </div>
 </section>
 
+<!-- ================= WHO'S COMING: WORLD MAP (pre only) ================= -->
+<section class="pre-only">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Who's coming</div>
+      <h2>Builders are booking flights</h2>
+      <p class="sub">Confirmed hackers by home city, updating as acceptance rounds close.</p>
+    </div>
+    <div class="card" style="padding:26px">
+      <div class="map-box">
+        <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of cities confirmed ETHGlobal Lisbon hackers are traveling from">
+        <span class="map-dot big" style="left:47.5%;top:28.5%"><span class="tip">Lisboa · 46 hackers</span></span>
+        <span class="map-dot" style="left:47.6%;top:27.2%"><span class="tip">Porto · 18</span></span>
+        <span class="map-dot" style="left:49%;top:27.6%"><span class="tip">Madrid · 15</span></span>
+        <span class="map-dot" style="left:50.6%;top:27%"><span class="tip">Barcelona · 11</span></span>
+        <span class="map-dot" style="left:50.6%;top:22.8%"><span class="tip">Paris · 14</span></span>
+        <span class="map-dot" style="left:50%;top:21.4%"><span class="tip">London · 13</span></span>
+        <span class="map-dot" style="left:53.7%;top:20.8%"><span class="tip">Berlin · 16</span></span>
+        <span class="map-dot" style="left:55.8%;top:21%"><span class="tip">Warsaw · 8</span></span>
+        <span class="map-dot" style="left:58.1%;top:27.2%"><span class="tip">Istanbul · 6</span></span>
+        <span class="map-dot" style="left:29.4%;top:27.4%"><span class="tip">New York · 9</span></span>
+        <span class="map-dot" style="left:27.9%;top:25.7%"><span class="tip">Toronto · 4</span></span>
+        <span class="map-dot" style="left:37.1%;top:63.1%"><span class="tip">São Paulo · 7</span></span>
+        <span class="map-dot" style="left:50.9%;top:46.4%"><span class="tip">Lagos · 5</span></span>
+        <span class="map-dot" style="left:71.6%;top:42.8%"><span class="tip">Bangalore · 8</span></span>
+        <span class="map-dot" style="left:78.8%;top:49.3%"><span class="tip">Singapore · 3</span></span>
+        <span class="map-dot" style="left:88.8%;top:30.2%"><span class="tip">Tokyo · 5</span></span>
+      </div>
+      <p class="sample-note">Sample cities and counts. Wire to the HQ city breakdown at build time; internal numbers stay off the public build unless approved.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITIES ATTENDING (pre only) ================= -->
+<section class="pre-only" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Communities attending</div>
+      <h2>Clubs travel together</h2>
+      <p class="sub">University blockchain clubs and city crews apply as cohorts and earn milestone rewards together.</p>
+    </div>
+    <div class="co-carousel">
+      <div class="co-track" id="commTrack">
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)">DV</span>DeVinci Blockchain</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f43f5e,#f59e0b)">ES</span>ETHSpain</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#10b981,#3b82f6)">TL</span>Técnico Lisboa Blockchain Club</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">LD</span>Lisboa DAO</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">UP</span>U.Porto Web Devs</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#0ea5e9,#10b981)">MB</span>Madrid Builders</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">BB</span>Berlin Blockchain Week Collective</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#fb923c,#f43f5e)">WE</span>Warsaw ETH Circle</span>
+      </div>
+    </div>
+    <p class="sample-note">Sample roster and logos. Wire to confirmed community cohorts from HQ; clubs earn milestone rewards as their cohort grows.</p>
+  </div>
+</section>
+
 <!-- ================= COMMUNITY TWEETS (both states) ================= -->
 <section id="community">
   <div class="wrap">
@@ -970,12 +965,22 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Just got my ETHGlobal Lisbon acceptance. Who else is in? Looking for a teammate who knows their way around ENS."</p></div>
       <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Our whole DevRel team will be at Pavilhão Carlos Lopes in July. Come find us at the booth."</p></div>
       <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"The Continuity rule change is huge. Finally a hackathon that rewards maintaining real software."</p></div>
-      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"36 hours ago this repo didn't exist. Now it's a finalist at ETHGlobal Lisbon. Still shaking."</p></div>
-      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Shipped our first Continuity project in Lisbon: a real feature, on a real product, live before the closing ceremony."</p></div>
-      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Judged 30+ projects at Pavilhão Carlos Lopes this weekend. The bar in Lisbon was absurd. See you in Tokyo."</p></div>
-      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Met my team on Friday, demoed on Sunday, keeping the project alive in Spotlight. That's the whole pitch."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"This repo didn't exist on Friday. Finalist at ETHGlobal Lisbon on Sunday."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Shipped a real feature on a real product before the closing ceremony. The Continuity track was the right call."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Judged 30+ projects at Pavilhão Carlos Lopes this weekend. Lisbon set a high bar. Tokyo next."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Met my team Friday, demoed Sunday, still building in Spotlight."</p></div>
     </div>
     <p class="sample-note">Sample cards. Replace with curated live embeds of real posts about the event.</p>
+  </div>
+</section>
+
+<!-- ================= CLOSING CTA (pre only) ================= -->
+<section class="pre-only" style="background:var(--ink)">
+  <div class="wrap" style="text-align:center">
+    <div class="kicker" style="color:#8FB8FF">Applications are open</div>
+    <h2 style="color:#fff;margin-bottom:10px">36 hours in Lisbon. Free if you're accepted.</h2>
+    <p style="color:#a5a5af;font-size:16px;margin-bottom:26px">Round 3 closes tonight at midnight. Later rounds have fewer spots.</p>
+    <a class="btn btn-primary" href="https://ethglobal.com/events/lisbon2026/apply">Apply to hack</a>
   </div>
 </section>
 
@@ -1066,9 +1071,9 @@ const WORKSHOPS = [
 const PL_URL = 'https://www.youtube.com/playlist?list=PLWgAODGnD_is';
 function renderPlaylist(){
   const post = document.body.dataset.state === 'post';
-  document.getElementById('plList').innerHTML = WORKSHOPS.map(([t,org,slot,dur,ph]) => post
-    ? `<a class="pl-item" href="${PL_URL}" target="_blank" rel="noopener"><span class="pl-thumb"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop recording" loading="lazy"><span class="play">▶</span></span><span><b>${t}</b><span>${org} · ${dur}</span></span></a>`
-    : `<div class="pl-item"><span class="pl-thumb"><span class="soon">Coming soon</span></span><span><b>${t}</b><span>${org} · ${slot}</span></span></div>`).join('');
+  document.getElementById('wsGrid').innerHTML = WORKSHOPS.map(([t,org,slot,dur,ph]) => post
+    ? `<a class="ws-card" href="${PL_URL}" target="_blank" rel="noopener"><span class="ws-thumb"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop recording" loading="lazy"><span class="dur">${dur}</span><span class="play"><i>▶</i></span></span><span class="ws-body"><b>${t}</b><span>${org}</span></span></a>`
+    : `<div class="ws-card"><span class="ws-thumb soon"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop" loading="lazy"><span class="soon-tag">Coming soon</span></span><span class="ws-body"><b>${t}</b><span>${org} · ${slot}</span></span></div>`).join('');
 }
 renderPlaylist();
 
