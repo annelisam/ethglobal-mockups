@@ -6,7 +6,7 @@
 
 <!-- ============ SEO ============ -->
 <title>ETHGlobal Lisbon 2026 Recap · Ethereum Hackathon · July 24–26 · Pavilhão Carlos Lopes</title>
-<meta name="description" content="The official ETHGlobal Lisbon 2026 recap: a free 36-hour Ethereum hackathon held July 24–26 at Pavilhão Carlos Lopes, with $125K+ in prizes from The Graph, World, Hedera, 0G, Uniswap Foundation, Sui, ENS and 1inch. Watch the recap film, browse the winners, workshop recordings and photos.">
+<meta name="description" content="The official ETHGlobal Lisbon 2026 recap: 382 builders, 174 projects and $100K awarded in 36 hours at Pavilhão Carlos Lopes, July 24–26. Watch the recap film, browse the winners, workshop recordings and photos.">
 <link rel="canonical" href="https://ethglobal.com/events/lisbon2026">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -348,14 +348,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .swag-card b{font-size:15px}
 .swag-card p{font-size:13px;color:var(--ink-3)}
 
-/* social proof */
-.proof-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:start}
-@media(max-width:900px){.proof-grid{grid-template-columns:1fr}}
-.geo-card{padding:26px}
-.geo-row{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px}
-.geo-row .bar{height:12px;border-radius:6px;background:var(--blue-tint);overflow:hidden}
-.geo-row .bar i{display:block;height:100%;border-radius:6px 4px 4px 6px;background:var(--blue)}
-.geo-row b{font-variant-numeric:tabular-nums;text-align:right;color:var(--ink-2);font-weight:700}
+/* community tweets */
 .sample-note{font-size:11.5px;color:var(--ink-3);margin-top:10px;font-style:italic}
 .tweets{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.tweets{grid-template-columns:1fr}}
@@ -417,13 +410,35 @@ a.ws-card:hover .ws-thumb .play{opacity:1}
 .win-card .medal{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
 .win-card b{display:block;font-size:16px;margin:4px 0}
 .win-card p{font-size:13.5px;color:var(--ink-2)}
-.data-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-@media(max-width:860px){.data-tiles{grid-template-columns:repeat(2,1fr)}}
-.tile{padding:22px;text-align:left}
-.tile b{display:block;font-size:32px;letter-spacing:-.03em}
-.tile span{font-size:12.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.07em}
-.data-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:900px){.data-cols{grid-template-columns:1fr}}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-cell{padding:24px 28px;border-left:1px solid var(--line);min-width:0}
+.stat-cell:first-child{border-left:0}
+.stat-cell b{display:block;font-size:clamp(30px,3.6vw,42px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat-cell span{display:block;margin-top:9px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);line-height:1.5}
+@media(max-width:860px){
+  .stat-strip{grid-template-columns:1fr 1fr}
+  .stat-cell{padding:20px 22px}
+  .stat-cell:nth-child(3){border-left:0}
+  .stat-cell:nth-child(n+3){border-top:1px solid var(--line)}
+}
+.data-board{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.data-board .span2{grid-column:1/-1}
+@media(max-width:900px){.data-board{grid-template-columns:1fr}}
+.data-panel{display:flex;flex-direction:column;padding:24px 26px}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 14px;margin-bottom:18px}
+.panel-head h3{font-size:15px;letter-spacing:-.01em}
+.panel-head .meta{font-size:12px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar-list{display:grid;gap:12px;margin-bottom:4px}
+.bar-row{display:grid;gap:6px}
+.bar-row .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.bar-row .lbl{font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.bar-row .val{font-size:13px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.bar-row .desc{font-size:12.5px;color:var(--ink-3);margin-top:-3px}
+.bar-row .track{display:block;height:6px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar-row .fill{display:block;height:100%;border-radius:999px;background:var(--blue)}
+.panel-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
+.panel-foot b{color:var(--ink)}
+.data-panel .sample-note{margin-top:14px}
 
 /* upcoming */
 .up-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -535,7 +550,6 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <div class="sec-head" style="text-align:center;max-width:760px;margin:0 auto 30px">
         <div class="kicker">July 24–26, 2026 · Pavilhão Carlos Lopes, Lisboa</div>
         <h1 style="font-size:clamp(36px,5vw,56px)">That's a wrap on ETHGlobal <em style="font-style:normal;color:var(--blue)">Lisbon</em></h1>
-        <p class="sub" style="margin:14px auto 0">36 hours of building, $125K+ awarded, and a venue full of projects that didn't exist on Friday. Watch the recap film, browse the winners, and catch the next stop.</p>
       </div>
       <div class="video-hero">
         <iframe src="https://www.youtube-nocookie.com/embed/pojEPJTmDJg?rel=0" title="ETHGlobal Lisbon 2026 official recap film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
@@ -579,10 +593,14 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 <!-- ================= STATS BAR ================= -->
 <div class="stats">
   <div class="wrap">
-    <div class="stat"><b>95+</b><span>Events run</span></div>
-    <div class="stat"><b>14,000+</b><span>Projects created</span></div>
-    <div class="stat"><b>$350M+</b><span>Raised by alumni</span></div>
-    <div class="stat"><b>$125K+</b><span class="pre-only">In prizes</span><span class="post-only">Awarded in Lisbon</span></div>
+    <div class="stat pre-only"><b>95+</b><span>Events run</span></div>
+    <div class="stat pre-only"><b>14,000+</b><span>Projects created</span></div>
+    <div class="stat pre-only"><b>$350M+</b><span>Raised by alumni</span></div>
+    <div class="stat pre-only"><b>$125K+</b><span>In prizes</span></div>
+    <div class="stat post-only"><b>382</b><span>Builders</span></div>
+    <div class="stat post-only"><b>174</b><span>Projects submitted</span></div>
+    <div class="stat post-only"><b>$100K</b><span>In prizes awarded</span></div>
+    <div class="stat post-only"><b>10</b><span>Finalists</span></div>
   </div>
 </div>
 
@@ -787,52 +805,71 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <h2>What got built</h2>
       <p class="sub">Sample figures for the mockup. Wire to HQ exports and the post-event analysis before publishing.</p>
     </div>
-    <div class="data-tiles">
-      <div class="card tile"><b>210</b><span>Projects submitted</span></div>
-      <div class="card tile"><b>48</b><span>Countries represented</span></div>
-      <div class="card tile"><b>29+</b><span>Workshops run</span></div>
-      <div class="card tile"><b>38%</b><span>Chose a Continuity path</span></div>
+
+    <div class="card stat-strip">
+      <div class="stat-cell"><b>174</b><span>Projects submitted</span></div>
+      <div class="stat-cell"><b>48</b><span>Countries represented</span></div>
+      <div class="stat-cell"><b>29+</b><span>Workshops run</span></div>
+      <div class="stat-cell"><b>38%</b><span>Chose a Continuity path</span></div>
     </div>
-    <div class="card" style="padding:26px;margin-bottom:24px">
-      <h3 style="font-size:16px;margin-bottom:16px">Builders came from 48 countries</h3>
-      <div class="map-box">
-        <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of where ETHGlobal Lisbon builders came from">
-        <span class="map-dot big" style="left:44.7%;top:28.5%"><span class="tip">Portugal · 26%</span></span>
-        <span class="map-dot" style="left:47.9%;top:24.5%"><span class="tip">Germany · 14%</span></span>
-        <span class="map-dot" style="left:45.6%;top:27.6%"><span class="tip">Spain · 12%</span></span>
-        <span class="map-dot" style="left:46.4%;top:25.6%"><span class="tip">France · 11%</span></span>
-        <span class="map-dot" style="left:45.4%;top:23.3%"><span class="tip">UK · 9%</span></span>
-        <span class="map-dot" style="left:28.5%;top:29.5%"><span class="tip">United States</span></span>
-        <span class="map-dot" style="left:37.8%;top:57.5%"><span class="tip">Brazil</span></span>
-        <span class="map-dot" style="left:52.7%;top:34.5%"><span class="tip">Nigeria</span></span>
-        <span class="map-dot" style="left:63.6%;top:37.5%"><span class="tip">India</span></span>
-        <span class="map-dot" style="left:74.5%;top:41%"><span class="tip">Vietnam</span></span>
-        <span class="map-dot" style="left:80.9%;top:30.5%"><span class="tip">Japan</span></span>
-        <span class="map-dot" style="left:48.7%;top:22%"><span class="tip">Denmark</span></span>
-        <span class="map-dot" style="left:56.2%;top:26.5%"><span class="tip">Turkey</span></span>
-        <span class="map-dot" style="left:32.5%;top:25.5%"><span class="tip">Canada</span></span>
-        <span class="map-dot" style="left:41.5%;top:37.5%"><span class="tip">Morocco</span></span>
+    <p class="sample-note">Sample totals. Wire to the HQ post-event export.</p>
+
+    <div class="data-board">
+      <div class="card data-panel span2">
+        <div class="panel-head">
+          <h3>Builders from 48 countries</h3>
+          <span class="meta">Hover a dot</span>
+        </div>
+        <div class="map-box">
+          <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of where ETHGlobal Lisbon builders came from">
+          <span class="map-dot big" style="left:44.7%;top:28.5%"><span class="tip">Portugal · 26%</span></span>
+          <span class="map-dot" style="left:47.9%;top:24.5%"><span class="tip">Germany · 14%</span></span>
+          <span class="map-dot" style="left:45.6%;top:27.6%"><span class="tip">Spain · 12%</span></span>
+          <span class="map-dot" style="left:46.4%;top:25.6%"><span class="tip">France · 11%</span></span>
+          <span class="map-dot" style="left:45.4%;top:23.3%"><span class="tip">UK · 9%</span></span>
+          <span class="map-dot" style="left:28.5%;top:29.5%"><span class="tip">United States</span></span>
+          <span class="map-dot" style="left:37.8%;top:57.5%"><span class="tip">Brazil</span></span>
+          <span class="map-dot" style="left:52.7%;top:34.5%"><span class="tip">Nigeria</span></span>
+          <span class="map-dot" style="left:63.6%;top:37.5%"><span class="tip">India</span></span>
+          <span class="map-dot" style="left:74.5%;top:41%"><span class="tip">Vietnam</span></span>
+          <span class="map-dot" style="left:80.9%;top:30.5%"><span class="tip">Japan</span></span>
+          <span class="map-dot" style="left:48.7%;top:22%"><span class="tip">Denmark</span></span>
+          <span class="map-dot" style="left:56.2%;top:26.5%"><span class="tip">Turkey</span></span>
+          <span class="map-dot" style="left:32.5%;top:25.5%"><span class="tip">Canada</span></span>
+          <span class="map-dot" style="left:41.5%;top:37.5%"><span class="tip">Morocco</span></span>
+        </div>
+        <p class="sample-note">Sample map. Wire dot positions and percentages to the HQ country breakdown at build time.</p>
       </div>
-      <p class="sample-note">Sample map. Wire dot positions and percentages to the HQ country breakdown at build time.</p>
-    </div>
-    <div class="data-cols">
-      <div class="card geo-card">
-        <h3 style="font-size:16px;margin-bottom:16px">Where hackers came from</h3>
-        <div class="geo-row"><span>Portugal</span><span class="bar"><i style="width:88%"></i></span><b>26%</b></div>
-        <div class="geo-row"><span>Germany</span><span class="bar"><i style="width:48%"></i></span><b>14%</b></div>
-        <div class="geo-row"><span>Spain</span><span class="bar"><i style="width:41%"></i></span><b>12%</b></div>
-        <div class="geo-row"><span>France</span><span class="bar"><i style="width:37%"></i></span><b>11%</b></div>
-        <div class="geo-row"><span>UK</span><span class="bar"><i style="width:31%"></i></span><b>9%</b></div>
-        <div class="geo-row"><span>Elsewhere</span><span class="bar"><i style="width:95%"></i></span><b>28%</b></div>
-        <p class="sample-note">Sample data. Audience demographics from HQ.</p>
+
+      <div class="card data-panel">
+        <div class="panel-head">
+          <h3>Project categories</h3>
+          <span class="meta">Share of 174 projects</span>
+        </div>
+        <div class="bar-list">
+          <div class="bar-row"><div class="top"><span class="lbl">DeFi &amp; payments</span><span class="val">24%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:24%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">AI agents</span><span class="val">21%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:21%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Infrastructure &amp; dev tooling</span><span class="val">17%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:17%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Identity &amp; privacy</span><span class="val">12%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:12%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Consumer &amp; social</span><span class="val">11%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:11%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Gaming</span><span class="val">8%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:8%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Other</span><span class="val">7%</span></div><span class="track" aria-hidden="true"><i class="fill" style="width:7%"></i></span></div>
+        </div>
+        <p class="sample-note">Sample split. Wire to category tags from the showcase export.</p>
       </div>
-      <div class="card geo-card">
-        <h3 style="font-size:16px;margin-bottom:16px">Continuity track, first outing</h3>
-        <div class="geo-row"><span>Classic</span><span class="bar"><i style="width:95%"></i></span><b>62%</b></div>
-        <div class="geo-row"><span>Extend OSS</span><span class="bar"><i style="width:37%"></i></span><b>24%</b></div>
-        <div class="geo-row"><span>Ship a feature</span><span class="bar"><i style="width:22%"></i></span><b>14%</b></div>
-        <p style="color:var(--ink-2);font-size:14px;margin-top:16px">Slot for the continuity story: how many Continuity projects kept shipping after the weekend, and which ones moved into Spotlight.</p>
-        <p class="sample-note">Sample data. Project analytics and continuity metrics from the post-event review.</p>
+
+      <div class="card data-panel">
+        <div class="panel-head">
+          <h3>Continuity track, first outing</h3>
+          <span class="meta">Share of 174 projects</span>
+        </div>
+        <div class="bar-list">
+          <div class="bar-row"><div class="top"><span class="lbl">Classic</span><span class="val">62%</span></div><span class="desc">Started from an empty repo on Friday.</span><span class="track" aria-hidden="true"><i class="fill" style="width:62%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Extend open source</span><span class="val">24%</span></div><span class="desc">New commits on a repo they already maintain.</span><span class="track" aria-hidden="true"><i class="fill" style="width:24%"></i></span></div>
+          <div class="bar-row"><div class="top"><span class="lbl">Ship a feature</span><span class="val">14%</span></div><span class="desc">One new open-source feature on a live product.</span><span class="track" aria-hidden="true"><i class="fill" style="width:14%"></i></span></div>
+        </div>
+        <div class="panel-foot">The strongest <b>Continuity</b> projects moved into <b>Spotlight</b> for mentor check-ins after the weekend.</div>
+        <p class="sample-note">Sample data. Continuity metrics from the post-event review.</p>
       </div>
     </div>
   </div>
