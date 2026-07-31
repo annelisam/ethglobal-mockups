@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============ SEO ============ -->
-<title>ETHGlobal Lisbon 2026 · Ethereum Hackathon · July 24–26 · Pavilhão Carlos Lopes</title>
-<meta name="description" content="ETHGlobal Lisbon is a free 36-hour Ethereum hackathon, July 24–26, 2026 at Pavilhão Carlos Lopes. $125K+ in prizes from The Graph, World, Hedera, 0G, Uniswap Foundation, Sui, ENS and 1inch. Food, mentors and workshops included. Apply to hack.">
+<title>ETHGlobal Lisbon 2026 Recap · Ethereum Hackathon · July 24–26 · Pavilhão Carlos Lopes</title>
+<meta name="description" content="The official ETHGlobal Lisbon 2026 recap: a free 36-hour Ethereum hackathon held July 24–26 at Pavilhão Carlos Lopes, with $125K+ in prizes from The Graph, World, Hedera, 0G, Uniswap Foundation, Sui, ENS and 1inch. Watch the recap film, browse the winners, workshop recordings and photos.">
 <link rel="canonical" href="https://ethglobal.com/events/lisbon2026">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ETHGlobal">
-<meta property="og:title" content="ETHGlobal Lisbon 2026 · July 24–26 · Free to hack, $125K+ in prizes">
-<meta property="og:description" content="36 hours of building on Ethereum at Pavilhão Carlos Lopes. Free for accepted hackers with meals, mentors and workshops included.">
+<meta property="og:title" content="That's a wrap on ETHGlobal Lisbon 2026 · Watch the recap">
+<meta property="og:description" content="36 hours of building on Ethereum at Pavilhão Carlos Lopes, July 24–26. The recap film, winning projects, workshop recordings and the weekend in numbers.">
 <meta property="og:image" content="https://ethglobal.storage/events/lisbon2026/photos/fdbok/xl.jpg">
 <meta property="og:url" content="https://ethglobal.com/events/lisbon2026">
 <meta name="twitter:card" content="summary_large_image">
@@ -250,6 +250,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .co-track:hover{animation-play-state:paused}
 .co-chip{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px;white-space:nowrap}
 .co-chip img{width:22px;height:22px;border-radius:5px}
+.comm-mini{width:24px;height:24px;border-radius:7px;color:#fff;font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.sample-note{font-size:11.5px;color:var(--ink-3);margin-top:10px;font-style:italic}
 
 /* speakers */
 .spk-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
@@ -376,6 +378,32 @@ nav{position:sticky;top:0;z-index:100;background:rgba(240,240,240,.85);backdrop-
 .impact-card span{font-size:13px;color:var(--ink-3)}
 .impact-card p{font-size:13px;color:var(--ink-2);margin-top:8px}
 
+/* world map */
+.map-box{position:relative;border-radius:var(--radius-sm);overflow:hidden;background:#E9EEF6}
+.map-box img.base{width:100%;filter:grayscale(1) opacity(.35)}
+.map-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(47,111,228,.5);transform:translate(-50%,-50%);cursor:pointer}
+.map-dot.big{width:18px;height:18px}
+.map-dot .tip{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#111114;color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:5}
+.map-dot:hover .tip{opacity:1}
+
+/* workshops playlist */
+.playlist-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.playlist-grid{grid-template-columns:1fr}}
+.pl-list{display:flex;flex-direction:column;gap:10px;max-height:480px;overflow-y:auto;padding-right:6px}
+.pl-item{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;transition:transform .15s ease,box-shadow .15s ease}
+.pl-item:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+.pl-thumb{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--blue-tint)}
+.pl-thumb img{width:100%;height:100%;object-fit:cover}
+.pl-thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(17,17,20,.25);color:#fff;font-size:20px}
+.pl-thumb .soon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--blue-tint);color:var(--blue-dark);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.pl-item b{font-size:13.5px;display:block;line-height:1.3}
+.pl-item span{font-size:12px;color:var(--ink-3)}
+.soon-hero{display:flex;align-items:center;justify-content:center;background:var(--blue-tint);border:1px dashed #d5e4ff;box-shadow:none}
+.soon-inner{text-align:center;max-width:400px;padding:30px}
+.soon-badge{display:inline-block;background:var(--blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:14px}
+.soon-inner b{display:block;font-size:18px;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}
+.soon-inner p{font-size:13.5px;color:var(--ink-2)}
+
 /* post-event: winners, workshops, data */
 .video-hero{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lift);aspect-ratio:16/9;background:#000}
 .video-hero iframe{width:100%;height:100%;border:0}
@@ -425,14 +453,14 @@ footer a:hover{color:#fff}
 footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;color:#77777f}
 </style>
 </head>
-<body data-state="pre">
+<body data-state="post">
 
 <!-- ================= DEMO CONTROL (mockup only, not part of the shipped page) ================= -->
 <div class="demo-bar">
   <span class="lbl">Mockup demo</span>
   <div class="demo-toggle">
-    <button id="btn-pre" class="on" onclick="setState('pre')">Pre-event</button>
-    <button id="btn-post" onclick="setState('post')">Post-event recap</button>
+    <button id="btn-pre" onclick="setState('pre')">Pre-event</button>
+    <button id="btn-post" class="on" onclick="setState('post')">Post-event recap</button>
   </div>
   <span class="seo-link" onclick="document.getElementById('seoPanel').classList.toggle('open')">SEO/AEO notes</span>
 </div>
@@ -450,15 +478,18 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   <div class="wrap nav-in">
     <a class="logo" href="#">ETHGlobal <span>Lisbon</span></a>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="#about" class="pre-only">About</a>
       <a href="#prizes" class="pre-only">Prizes</a>
       <a href="#winners" class="post-only">Winners</a>
-      <a href="#speakers">Speakers</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#side-events">Side Events</a>
-      <a href="#venue">Venue</a>
+      <a href="#data" class="post-only">The Numbers</a>
+      <a href="#workshops">Workshops</a>
+      <a href="#speakers" class="pre-only">Speakers</a>
+      <a href="#schedule" class="pre-only">Schedule</a>
+      <a href="#side-events" class="pre-only">Side Events</a>
+      <a href="#venue" class="pre-only">Venue</a>
       <a href="#photos">Photos</a>
-      <a href="#faq">FAQ</a>
+      <a href="#community">Community</a>
+      <a href="#faq" class="pre-only">FAQ</a>
     </div>
     <a class="btn btn-primary pre-only" style="padding:10px 20px" href="https://ethglobal.com/events/lisbon2026/apply">Apply to hack</a>
     <a class="btn btn-ghost post-only" style="padding:10px 20px" href="#upcoming">Next events</a>
@@ -503,10 +534,10 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <div class="sec-head" style="text-align:center;max-width:760px;margin:0 auto 30px">
         <div class="kicker">July 24–26, 2026 · Pavilhão Carlos Lopes, Lisboa</div>
         <h1 style="font-size:clamp(36px,5vw,56px)">That's a wrap on ETHGlobal <em style="font-style:normal;color:var(--blue)">Lisbon</em></h1>
-        <p class="sub" style="margin:14px auto 0">36 hours of building, $125K+ awarded, and a venue full of projects that didn't exist on Friday. Watch the recap, meet the winners, and see where the road goes next.</p>
+        <p class="sub" style="margin:14px auto 0">36 hours of building, $125K+ awarded, and a venue full of projects that didn't exist on Friday. Watch the recap film, browse the winners, and catch the next stop.</p>
       </div>
       <div class="video-hero">
-        <iframe src="https://www.youtube.com/embed/pojEPJTmDJg" title="ETHGlobal Lisbon 2026 official recap film" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/pojEPJTmDJg?rel=0" title="ETHGlobal Lisbon 2026 official recap film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="hero-ctas" style="justify-content:center;margin-top:26px">
         <a class="btn btn-primary" href="#winners">See the winners</a>
@@ -556,8 +587,32 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 
 <main>
 
+<!-- ================= PRIZES (pre only) ================= -->
+<section id="prizes" class="pre-only">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Prizes</div>
+      <h2>$125K+ on the table, and growing</h2>
+      <p class="sub">Judged on creativity, functionality, technical difficulty and impact. More partner prizes are announced up to the event.</p>
+    </div>
+    <div class="prize-grid">
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/pfyco/square-logo/default.png" alt="The Graph logo"><div><b>The Graph</b><span>$15,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/3zpxc/square-logo/default.png" alt="World logo"><div><b>World</b><span>$15,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/bdi3h/square-logo/default.png" alt="Hedera logo"><div><b>Hedera</b><span>$15,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/g8xu4/square-logo/default.png" alt="0G logo"><div><b>0G</b><span>$15,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/026zc/square-logo/default.png" alt="Uniswap Foundation logo"><div><b>Uniswap Foundation</b><span>$10,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/vsbye/square-logo/default.png" alt="Sui logo"><div><b>Sui</b><span>$6,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/bw7y9/square-logo/default.png" alt="ENS logo"><div><b>ENS</b><span>$5,000</span></div></div>
+      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/if0ri/square-logo/default.png" alt="1inch logo"><div><b>1inch</b><span>$5,000</span></div></div>
+    </div>
+    <div class="card prize-card prize-more" id="partners-cta" style="margin-top:16px;padding:26px">
+      <span>More partners announced weekly &nbsp;·&nbsp; <a href="#" style="color:var(--blue-dark)">Sponsor ETHGlobal Lisbon →</a></span>
+    </div>
+  </div>
+</section>
+
 <!-- ================= ABOUT ================= -->
-<section id="about">
+<section id="about" class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap about-grid">
     <div class="about">
       <div class="kicker">About the hackathon</div>
@@ -575,7 +630,7 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 </section>
 
 <!-- ================= CONTINUITY ================= -->
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section class="pre-only">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">New for 2026 · Continuity</div>
@@ -605,61 +660,65 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   </div>
 </section>
 
-<!-- ================= PRIZES (pre only) ================= -->
-<section id="prizes" class="pre-only">
+<!-- ================= COMMUNITIES ATTENDING (pre only) ================= -->
+<section class="pre-only" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Prizes</div>
-      <h2>$125K+ on the table, and growing</h2>
-      <p class="sub">Judged on creativity, functionality, technical difficulty and impact. More partner prizes are announced up to the event.</p>
+      <div class="kicker">Communities attending</div>
+      <h2>Clubs are coming in cohorts</h2>
+      <p class="sub">University blockchain clubs and city communities sign up together, travel together and hack together. Bring yours.</p>
     </div>
-    <div class="prize-grid">
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/pfyco/square-logo/default.png" alt="The Graph logo"><div><b>The Graph</b><span>$15,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/3zpxc/square-logo/default.png" alt="World logo"><div><b>World</b><span>$15,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/bdi3h/square-logo/default.png" alt="Hedera logo"><div><b>Hedera</b><span>$15,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/g8xu4/square-logo/default.png" alt="0G logo"><div><b>0G</b><span>$15,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/026zc/square-logo/default.png" alt="Uniswap Foundation logo"><div><b>Uniswap Foundation</b><span>$10,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/vsbye/square-logo/default.png" alt="Sui logo"><div><b>Sui</b><span>$6,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/bw7y9/square-logo/default.png" alt="ENS logo"><div><b>ENS</b><span>$5,000</span></div></div>
-      <div class="card prize-card"><img src="https://ethglobal.b-cdn.net/organizations/if0ri/square-logo/default.png" alt="1inch logo"><div><b>1inch</b><span>$5,000</span></div></div>
+    <div class="co-carousel">
+      <div class="co-track" id="commTrack">
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)">DV</span>DeVinci Blockchain</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f43f5e,#f59e0b)">ES</span>ETHSpain</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#10b981,#3b82f6)">TL</span>Técnico Lisboa Blockchain Club</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">LD</span>Lisboa DAO</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">UP</span>U.Porto Web Devs</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#0ea5e9,#10b981)">MB</span>Madrid Builders</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">BB</span>Berlin Blockchain Week Collective</span>
+        <span class="co-chip"><span class="comm-mini" style="background:linear-gradient(135deg,#fb923c,#f43f5e)">WE</span>Warsaw ETH Circle</span>
+      </div>
     </div>
-    <div class="card prize-card prize-more" id="partners-cta" style="margin-top:16px;padding:26px">
-      <span>More partners announced weekly &nbsp;·&nbsp; <a href="#" style="color:var(--blue-dark)">Sponsor ETHGlobal Lisbon →</a></span>
-    </div>
+    <p class="sample-note">Sample roster and logos. Wire to confirmed community cohorts from HQ; clubs earn milestone rewards as their cohort grows.</p>
   </div>
 </section>
 
-<!-- ================= COMPANIES ATTENDING ================= -->
-<section style="padding-top:0" class="pre-only">
+<!-- ================= WHO'S COMING: WORLD MAP (pre only) ================= -->
+<section class="pre-only">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Who's in the room</div>
-      <h2>Teams attending</h2>
-      <p class="sub">Protocol engineers, developer-relations teams and founders on site all weekend, mentoring and hiring.</p>
+      <div class="kicker">Who's coming</div>
+      <h2>Builders are booking flights</h2>
+      <p class="sub">Confirmed hackers by home city, updating as acceptance rounds close.</p>
     </div>
-    <div class="co-carousel">
-      <div class="co-track" id="coTrack">
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/pfyco/square-logo/default.png" alt="The Graph logo">The Graph</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/if0ri/square-logo/default.png" alt="1inch logo">1inch</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/3zpxc/square-logo/default.png" alt="World logo">World</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/bw7y9/square-logo/default.png" alt="ENS logo">ENS</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/bdi3h/square-logo/default.png" alt="Hedera logo">Hedera</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/vsbye/square-logo/default.png" alt="Sui logo">Sui</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/g8xu4/square-logo/default.png" alt="0G logo">0G</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/026zc/square-logo/default.png" alt="Uniswap Foundation logo">Uniswap Foundation</span>
-        <span class="co-chip"><img src="https://ethglobal.b-cdn.net/organizations/5wcw4/square-logo/default.png" alt="Yellow logo">Yellow</span>
-        <span class="co-chip">WalletConnect</span>
-        <span class="co-chip">Pyth Network</span>
-        <span class="co-chip">Gnosis</span>
-        <span class="co-chip">Bleap</span>
-        <span class="co-chip">Keyring Network</span>
+    <div class="card" style="padding:26px">
+      <div class="map-box">
+        <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of cities confirmed ETHGlobal Lisbon hackers are traveling from">
+        <span class="map-dot big" style="left:47.5%;top:28.5%"><span class="tip">Lisboa · 46 hackers</span></span>
+        <span class="map-dot" style="left:47.6%;top:27.2%"><span class="tip">Porto · 18</span></span>
+        <span class="map-dot" style="left:49%;top:27.6%"><span class="tip">Madrid · 15</span></span>
+        <span class="map-dot" style="left:50.6%;top:27%"><span class="tip">Barcelona · 11</span></span>
+        <span class="map-dot" style="left:50.6%;top:22.8%"><span class="tip">Paris · 14</span></span>
+        <span class="map-dot" style="left:50%;top:21.4%"><span class="tip">London · 13</span></span>
+        <span class="map-dot" style="left:53.7%;top:20.8%"><span class="tip">Berlin · 16</span></span>
+        <span class="map-dot" style="left:55.8%;top:21%"><span class="tip">Warsaw · 8</span></span>
+        <span class="map-dot" style="left:58.1%;top:27.2%"><span class="tip">Istanbul · 6</span></span>
+        <span class="map-dot" style="left:29.4%;top:27.4%"><span class="tip">New York · 9</span></span>
+        <span class="map-dot" style="left:27.9%;top:25.7%"><span class="tip">Toronto · 4</span></span>
+        <span class="map-dot" style="left:37.1%;top:63.1%"><span class="tip">São Paulo · 7</span></span>
+        <span class="map-dot" style="left:50.9%;top:46.4%"><span class="tip">Lagos · 5</span></span>
+        <span class="map-dot" style="left:71.6%;top:42.8%"><span class="tip">Bangalore · 8</span></span>
+        <span class="map-dot" style="left:78.8%;top:49.3%"><span class="tip">Singapore · 3</span></span>
+        <span class="map-dot" style="left:88.8%;top:30.2%"><span class="tip">Tokyo · 5</span></span>
       </div>
+      <p class="sample-note">Sample cities and counts. Wire to the HQ city breakdown at build time; internal numbers stay off the public build unless approved.</p>
     </div>
   </div>
 </section>
 
 <!-- ================= SPEAKERS / JUDGES / MENTORS ================= -->
-<section id="speakers" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="speakers" class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Speakers · Judges · Mentors</div>
@@ -671,7 +730,7 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 </section>
 
 <!-- ================= SCHEDULE ================= -->
-<section id="schedule">
+<section id="schedule" class="pre-only">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Schedule</div>
@@ -714,7 +773,7 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 </section>
 
 <!-- ================= SIDE EVENTS ================= -->
-<section id="side-events">
+<section id="side-events" class="pre-only">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Side events · Onchain Lisbon Week, July 20–26</div>
@@ -730,25 +789,12 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
         <a class="btn btn-ghost" href="https://ethglobal.com/events/pragma-lisbon2026">Apply to attend →</a>
       </div>
     </div>
-    <div class="side-grid">
-      <div class="card side-card">
-        <img src="https://wsrv.nl/?url=cdn.mcauto-images-production.sendgrid.net/4dfd8225882c1272/3458508a-22c1-4bc1-ba91-d3f6a9557f85/600x600.png&w=500&h=500&fit=cover&output=jpg" alt="CryptoFriday Lisbon edition graphic">
-        <div class="body"><b>CryptoFriday: ETHGlobal Edition</b><p>Lisbon's crypto meetup joins the week. Casual talks and networking to open the weekend.</p></div>
-      </div>
-      <div class="card side-card">
-        <img src="https://wsrv.nl/?url=images.lumacdn.com/uploads/pb/aadb6b67-68af-4c16-b54d-ef08c030c1dd.png&w=500&h=500&fit=cover&output=jpg" alt="Onchain Builders Day graphic">
-        <div class="body"><b>Onchain Builders Day</b><p>A day of workshops and demos from local teams building onchain products.</p></div>
-      </div>
-      <div class="card side-card">
-        <img src="https://ethglobal.storage/events/lisbon2026/photos/wke3m/md.jpg" alt="Evening side event during Onchain Lisbon Week">
-        <div class="body"><b>Community nights</b><p>Partner dinners, run clubs and rooftop meetups across the city all week. Full calendar on the side events page.</p></div>
-      </div>
-    </div>
+    <p style="font-size:14.5px;color:var(--ink-2)">Plus CryptoFriday, Onchain Builders Day and community nights across the city all week. <a href="#" style="color:var(--blue-dark);font-weight:700">Full side-event calendar →</a></p>
   </div>
 </section>
 
 <!-- ================= VENUE ================= -->
-<section id="venue" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="venue" class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">The venue</div>
@@ -766,6 +812,112 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
       <summary>Getting there: Av. Sidónio Pais 16, 1070-051 Lisboa <span class="chev">▾</span></summary>
       <iframe title="Map of Pavilhão Carlos Lopes" src="https://www.google.com/maps?q=Pavilh%C3%A3o+Carlos+Lopes,+Av.+Sid%C3%B3nio+Pais+16,+Lisboa&output=embed" loading="lazy"></iframe>
     </details>
+  </div>
+</section>
+
+<!-- ================= POST-EVENT: WINNERS ================= -->
+<section id="winners" class="post-only">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The winners</div>
+      <h2>Finalists of ETHGlobal Lisbon</h2>
+      <p class="sub">Chosen from every submitted project after live judging and finalist demos on the closing stage. Sample cards below use past-event project banners; swap in the Lisbon finalists.</p>
+    </div>
+    <div class="win-grid">
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/eg56a/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/ag25f/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/o1e71/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/6yp69/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/hufkc/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/pok1f/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
+    </div>
+    <div style="margin-top:22px"><a class="btn btn-ghost" href="https://ethglobal.com/showcase">Browse every submitted project →</a></div>
+  </div>
+</section>
+
+<!-- ================= POST-EVENT: DATA ================= -->
+<section id="data" class="post-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The weekend in numbers</div>
+      <h2>What got built</h2>
+      <p class="sub">Sample figures for the mockup. Wire to HQ exports and the post-event analysis before publishing.</p>
+    </div>
+    <div class="data-tiles">
+      <div class="card tile"><b>210</b><span>Projects submitted</span></div>
+      <div class="card tile"><b>48</b><span>Countries represented</span></div>
+      <div class="card tile"><b>29+</b><span>Workshops run</span></div>
+      <div class="card tile"><b>38%</b><span>Chose a Continuity path</span></div>
+    </div>
+    <div class="card" style="padding:26px;margin-bottom:24px">
+      <h3 style="font-size:16px;margin-bottom:16px">Builders came from 48 countries</h3>
+      <div class="map-box">
+        <img class="base" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg" alt="World map of where ETHGlobal Lisbon builders came from">
+        <span class="map-dot big" style="left:44.7%;top:28.5%"><span class="tip">Portugal · 26%</span></span>
+        <span class="map-dot" style="left:47.9%;top:24.5%"><span class="tip">Germany · 14%</span></span>
+        <span class="map-dot" style="left:45.6%;top:27.6%"><span class="tip">Spain · 12%</span></span>
+        <span class="map-dot" style="left:46.4%;top:25.6%"><span class="tip">France · 11%</span></span>
+        <span class="map-dot" style="left:45.4%;top:23.3%"><span class="tip">UK · 9%</span></span>
+        <span class="map-dot" style="left:28.5%;top:29.5%"><span class="tip">United States</span></span>
+        <span class="map-dot" style="left:37.8%;top:57.5%"><span class="tip">Brazil</span></span>
+        <span class="map-dot" style="left:52.7%;top:34.5%"><span class="tip">Nigeria</span></span>
+        <span class="map-dot" style="left:63.6%;top:37.5%"><span class="tip">India</span></span>
+        <span class="map-dot" style="left:74.5%;top:41%"><span class="tip">Vietnam</span></span>
+        <span class="map-dot" style="left:80.9%;top:30.5%"><span class="tip">Japan</span></span>
+        <span class="map-dot" style="left:48.7%;top:22%"><span class="tip">Denmark</span></span>
+        <span class="map-dot" style="left:56.2%;top:26.5%"><span class="tip">Turkey</span></span>
+        <span class="map-dot" style="left:32.5%;top:25.5%"><span class="tip">Canada</span></span>
+        <span class="map-dot" style="left:41.5%;top:37.5%"><span class="tip">Morocco</span></span>
+      </div>
+      <p class="sample-note">Sample map. Wire dot positions and percentages to the HQ country breakdown at build time.</p>
+    </div>
+    <div class="data-cols">
+      <div class="card geo-card">
+        <h3 style="font-size:16px;margin-bottom:16px">Where hackers came from</h3>
+        <div class="geo-row"><span>Portugal</span><span class="bar"><i style="width:88%"></i></span><b>26%</b></div>
+        <div class="geo-row"><span>Germany</span><span class="bar"><i style="width:48%"></i></span><b>14%</b></div>
+        <div class="geo-row"><span>Spain</span><span class="bar"><i style="width:41%"></i></span><b>12%</b></div>
+        <div class="geo-row"><span>France</span><span class="bar"><i style="width:37%"></i></span><b>11%</b></div>
+        <div class="geo-row"><span>UK</span><span class="bar"><i style="width:31%"></i></span><b>9%</b></div>
+        <div class="geo-row"><span>Elsewhere</span><span class="bar"><i style="width:95%"></i></span><b>28%</b></div>
+        <p class="sample-note">Sample data. Audience demographics from HQ.</p>
+      </div>
+      <div class="card geo-card">
+        <h3 style="font-size:16px;margin-bottom:16px">Continuity track, first outing</h3>
+        <div class="geo-row"><span>Classic</span><span class="bar"><i style="width:95%"></i></span><b>62%</b></div>
+        <div class="geo-row"><span>Extend OSS</span><span class="bar"><i style="width:37%"></i></span><b>24%</b></div>
+        <div class="geo-row"><span>Ship a feature</span><span class="bar"><i style="width:22%"></i></span><b>14%</b></div>
+        <p style="color:var(--ink-2);font-size:14px;margin-top:16px">Slot for the continuity story: how many Continuity projects kept shipping after the weekend, and which ones moved into Spotlight.</p>
+        <p class="sample-note">Sample data. Project analytics and continuity metrics from the post-event review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKSHOPS (both states: playlist post, schedule pre) ================= -->
+<section id="workshops">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker pre-only">Workshops</div>
+      <div class="kicker post-only">Watch it back</div>
+      <h2 class="pre-only">29+ workshops across the weekend</h2>
+      <h2 class="post-only">Every workshop, recorded</h2>
+      <p class="sub pre-only">Hands-on sessions from partner engineering teams, running Friday and Saturday. Recordings appear here during the event.</p>
+      <p class="sub post-only">The full Lisbon playlist: 29+ partner sessions, the Pragma talks and the closing ceremony livestream.</p>
+    </div>
+    <div class="playlist-grid">
+      <div>
+        <div class="video-hero post-only">
+          <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLWgAODGnD_is&rel=0" title="ETHGlobal Lisbon workshops playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-hero pre-only soon-hero">
+          <div class="soon-inner"><span class="soon-badge">Coming soon</span><b>Workshop recordings land here when the event goes live</b><p>Follow the schedule below. Every session is recorded and published to the ETHGlobal channel.</p></div>
+        </div>
+        <p class="post-only" style="font-size:13.5px;color:var(--ink-3);margin-top:10px">Playing the full playlist. Pick a session from the list, or <a href="https://www.youtube.com/playlist?list=PLWgAODGnD_is" style="color:var(--blue-dark);font-weight:700">open it on YouTube →</a></p>
+      </div>
+      <div class="pl-list" id="plList"><!-- populated by JS from WORKSHOPS data --></div>
+    </div>
+    <p class="sample-note">Sample session list. Wire titles, durations and per-video links to the published playlist at build time.</p>
   </div>
 </section>
 
@@ -805,152 +957,25 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
   </div>
 </section>
 
-<!-- ================= SWAG ================= -->
-<section class="pre-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- ================= COMMUNITY TWEETS (both states) ================= -->
+<section id="community">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Swag</div>
-      <h2>Worth the suitcase space</h2>
-      <p class="sub">Every event gets its own drop. Past hackers still wear theirs years later.</p>
+      <div class="kicker">From the community</div>
+      <h2 class="pre-only">What builders are saying</h2>
+      <h2 class="post-only">What builders said about the weekend</h2>
     </div>
-    <div class="swag-grid">
-      <div class="card swag-card"><img src="https://ethglobal.storage/events/lisbon2026/photos/fe3gx/md.jpg" alt="ETHGlobal Lisbon event swag"><div class="body"><b>The Lisbon drop</b><p>Swap in swag close-up photo</p></div></div>
-      <div class="card swag-card"><img src="https://ethglobal.storage/events/lisbon2026/photos/03dbz/md.jpg" alt="ETHGlobal hackers wearing event merchandise"><div class="body"><b>Past event drops</b><p>Swap in past-swag gallery photo</p></div></div>
-      <div class="card swag-card"><img src="https://ethglobal.storage/events/lisbon2026/photos/r208e/md.jpg" alt="Limited edition finisher swag"><div class="body"><b>Finisher exclusives</b><p>Some pieces you can only earn by submitting</p></div></div>
+    <div class="tweets">
+      <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Flights booked for Lisbon. Third ETHGlobal this year and the bar keeps going up."</p></div>
+      <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Just got my ETHGlobal Lisbon acceptance. Who else is in? Looking for a teammate who knows their way around ENS."</p></div>
+      <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Our whole DevRel team will be at Pavilhão Carlos Lopes in July. Come find us at the booth."</p></div>
+      <div class="card tweet pre-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"The Continuity rule change is huge. Finally a hackathon that rewards maintaining real software."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"36 hours ago this repo didn't exist. Now it's a finalist at ETHGlobal Lisbon. Still shaking."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Shipped our first Continuity project in Lisbon: a real feature, on a real product, live before the closing ceremony."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Judged 30+ projects at Pavilhão Carlos Lopes this weekend. The bar in Lisbon was absurd. See you in Tokyo."</p></div>
+      <div class="card tweet post-only"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Met my team on Friday, demoed on Sunday, keeping the project alive in Spotlight. That's the whole pitch."</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ================= SOCIAL PROOF (pre only) ================= -->
-<section class="pre-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Who's coming</div>
-      <h2>Builders are booking flights</h2>
-    </div>
-    <div class="proof-grid">
-      <div class="card geo-card">
-        <h3 style="font-size:16px;margin-bottom:16px">Confirmed hackers are coming from</h3>
-        <div class="geo-row"><span>Portugal</span><span class="bar"><i style="width:88%"></i></span><b>26%</b></div>
-        <div class="geo-row"><span>Germany</span><span class="bar"><i style="width:48%"></i></span><b>14%</b></div>
-        <div class="geo-row"><span>Spain</span><span class="bar"><i style="width:41%"></i></span><b>12%</b></div>
-        <div class="geo-row"><span>France</span><span class="bar"><i style="width:37%"></i></span><b>11%</b></div>
-        <div class="geo-row"><span>UK</span><span class="bar"><i style="width:31%"></i></span><b>9%</b></div>
-        <div class="geo-row"><span>Elsewhere</span><span class="bar"><i style="width:95%"></i></span><b>28%</b></div>
-        <p class="sample-note">Sample data for the mockup. Wire to HQ country breakdown at build time.</p>
-      </div>
-      <div>
-        <div class="tweets">
-          <div class="card tweet"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Flights booked for Lisbon. Third ETHGlobal this year and the bar keeps going up."</p></div>
-          <div class="card tweet"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Just got my ETHGlobal Lisbon acceptance. Who else is in? Looking for a teammate who knows their way around ENS."</p></div>
-          <div class="card tweet"><div class="t-head"><span class="t-av"></span><div><b>Sample partner</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"Our whole DevRel team will be at Pavilhão Carlos Lopes in July. Come find us at the booth."</p></div>
-          <div class="card tweet"><div class="t-head"><span class="t-av"></span><div><b>Sample builder</b><span>@handle</span></div><span class="t-x">𝕏</span></div><p>"The Continuity rule change is huge. Finally a hackathon that rewards maintaining real software."</p></div>
-        </div>
-        <p class="sample-note">Sample cards. Replace with curated live embeds of real posts about the event.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= IMPACT ================= -->
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Impact</div>
-      <h2>Companies that started at an ETHGlobal weekend</h2>
-      <p class="sub">14,000+ projects have come out of ETHGlobal events, and alumni companies have raised $350M+. A few began exactly the way this weekend will.</p>
-    </div>
-    <div class="impact-grid">
-      <div class="card impact-card"><img src="https://ethglobal.b-cdn.net/organizations/if0ri/square-logo/default.png" alt="1inch logo"><b>1inch</b><span>ETHGlobal New York 2019</span><p>Built as a hackathon project, now one of DeFi's largest aggregators and a Lisbon prize partner.</p></div>
-      <div class="card impact-card"><div class="ph-logo">A</div><b>Alumni company</b><span>Event · Year</span><p>Slot for a verified alumni story: what they built that weekend and where it went.</p></div>
-      <div class="card impact-card"><div class="ph-logo">B</div><b>Alumni company</b><span>Event · Year</span><p>Slot for a verified alumni story: what they built that weekend and where it went.</p></div>
-      <div class="card impact-card"><div class="ph-logo">C</div><b>Alumni company</b><span>Event · Year</span><p>Slot for a verified alumni story: what they built that weekend and where it went.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= POST-EVENT: WINNERS ================= -->
-<section id="winners" class="post-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">The winners</div>
-      <h2>Finalists of ETHGlobal Lisbon</h2>
-      <p class="sub">Chosen from every submitted project after live judging and finalist demos on the closing stage. Sample cards below use past-event project banners; swap in the Lisbon finalists.</p>
-    </div>
-    <div class="win-grid">
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/eg56a/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/ag25f/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/o1e71/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/6yp69/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/hufkc/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-      <div class="card win-card"><img src="https://ethglobal.b-cdn.net/projects/pok1f/banner/default.jpg" alt="Finalist project banner"><div class="body"><span class="medal">🏆 Finalist</span><b>Project name</b><p>One-line description of what the team built and which prize tracks it won.</p></div></div>
-    </div>
-    <div style="margin-top:22px"><a class="btn btn-ghost" href="https://ethglobal.com/showcase">Browse every submitted project →</a></div>
-  </div>
-</section>
-
-<!-- ================= POST-EVENT: WORKSHOPS + LIVESTREAM ================= -->
-<section class="post-only" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Watch it back</div>
-      <h2>Workshops, talks and the livestream</h2>
-      <p class="sub">Every workshop and Pragma session was recorded. Catch up on what you missed, or rewatch the finals.</p>
-    </div>
-    <div class="data-cols">
-      <div>
-        <div class="video-hero" style="aspect-ratio:16/9">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=PLWgAODGnD_is" title="ETHGlobal Lisbon workshops playlist" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <p style="font-size:13.5px;color:var(--ink-3);margin-top:10px">The full workshops playlist, 29+ sessions from partner engineering teams.</p>
-      </div>
-      <div>
-        <div class="card" style="padding:26px;height:100%">
-          <h3 style="font-size:18px;margin-bottom:12px">Also on the channel</h3>
-          <p style="color:var(--ink-2);font-size:14.5px;margin-bottom:10px"><b>Closing ceremony livestream.</b> Finalist demos, judges' comments and the winners, as it happened.</p>
-          <p style="color:var(--ink-2);font-size:14.5px;margin-bottom:10px"><b>Pragma Lisbon sessions.</b> Talks and panels from the single-track summit, split per speaker.</p>
-          <p style="color:var(--ink-2);font-size:14.5px;margin-bottom:18px"><b>The recap film.</b> Three minutes of the whole weekend, at the top of this page.</p>
-          <a class="btn btn-ghost" href="https://www.youtube.com/@ETHGlobal">Open the channel →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= POST-EVENT: DATA ================= -->
-<section class="post-only">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">The weekend in numbers</div>
-      <h2>What got built</h2>
-      <p class="sub">Sample figures for the mockup. Wire to HQ exports and the post-event analysis before publishing.</p>
-    </div>
-    <div class="data-tiles">
-      <div class="card tile"><b>210</b><span>Projects submitted</span></div>
-      <div class="card tile"><b>48</b><span>Countries represented</span></div>
-      <div class="card tile"><b>29+</b><span>Workshops run</span></div>
-      <div class="card tile"><b>38%</b><span>Chose a Continuity path</span></div>
-    </div>
-    <div class="data-cols">
-      <div class="card geo-card">
-        <h3 style="font-size:16px;margin-bottom:16px">Where hackers came from</h3>
-        <div class="geo-row"><span>Portugal</span><span class="bar"><i style="width:88%"></i></span><b>26%</b></div>
-        <div class="geo-row"><span>Germany</span><span class="bar"><i style="width:48%"></i></span><b>14%</b></div>
-        <div class="geo-row"><span>Spain</span><span class="bar"><i style="width:41%"></i></span><b>12%</b></div>
-        <div class="geo-row"><span>France</span><span class="bar"><i style="width:37%"></i></span><b>11%</b></div>
-        <div class="geo-row"><span>UK</span><span class="bar"><i style="width:31%"></i></span><b>9%</b></div>
-        <div class="geo-row"><span>Elsewhere</span><span class="bar"><i style="width:95%"></i></span><b>28%</b></div>
-        <p class="sample-note">Sample data. Audience demographics from HQ.</p>
-      </div>
-      <div class="card geo-card">
-        <h3 style="font-size:16px;margin-bottom:16px">Continuity track, first outing</h3>
-        <div class="geo-row"><span>Classic</span><span class="bar"><i style="width:95%"></i></span><b>62%</b></div>
-        <div class="geo-row"><span>Extend OSS</span><span class="bar"><i style="width:37%"></i></span><b>24%</b></div>
-        <div class="geo-row"><span>Ship a feature</span><span class="bar"><i style="width:22%"></i></span><b>14%</b></div>
-        <p style="color:var(--ink-2);font-size:14px;margin-top:16px">Slot for the continuity story: how many Continuity projects kept shipping after the weekend, and which ones moved into Spotlight.</p>
-        <p class="sample-note">Sample data. Project analytics and continuity metrics from the post-event review.</p>
-      </div>
-    </div>
+    <p class="sample-note">Sample cards. Replace with curated live embeds of real posts about the event.</p>
   </div>
 </section>
 
@@ -972,7 +997,7 @@ footer .fine{border-top:1px solid #2a2a30;padding-top:22px;font-size:12.5px;colo
 </section>
 
 <!-- ================= FAQ ================= -->
-<section id="faq">
+<section id="faq" class="pre-only">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">FAQ</div>
@@ -1023,8 +1048,29 @@ function setState(s){
   document.body.dataset.state = s;
   document.getElementById('btn-pre').classList.toggle('on', s==='pre');
   document.getElementById('btn-post').classList.toggle('on', s==='post');
+  renderPlaylist();
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+/* ============ workshops playlist (sample list: wire to published playlist) ============ */
+const WORKSHOPS = [
+  ['Subgraphs in 60 minutes','The Graph','Fri 14:00','58 min','0js54'],
+  ['Building with World ID','World','Fri 15:00','44 min','ejg1s'],
+  ['Hedera smart contracts, hands-on','Hedera','Fri 16:00','51 min','i3ndv'],
+  ['Onchain AI with 0G','0G','Fri 17:00','39 min','nxmtr'],
+  ['Uniswap v4 hooks, from zero','Uniswap Foundation','Sat 11:00','62 min','0vqgc'],
+  ['Intro to Sui Move','Sui','Sat 12:00','47 min','dpuy0'],
+  ['ENS integrations that ship','ENS','Sat 14:00','35 min','upv5w'],
+  ['1inch APIs for builders','1inch','Sat 15:00','41 min','xpu1p']
+];
+const PL_URL = 'https://www.youtube.com/playlist?list=PLWgAODGnD_is';
+function renderPlaylist(){
+  const post = document.body.dataset.state === 'post';
+  document.getElementById('plList').innerHTML = WORKSHOPS.map(([t,org,slot,dur,ph]) => post
+    ? `<a class="pl-item" href="${PL_URL}" target="_blank" rel="noopener"><span class="pl-thumb"><img src="https://ethglobal.storage/events/lisbon2026/photos/${ph}/md.jpg" alt="${t}, ${org} workshop recording" loading="lazy"><span class="play">▶</span></span><span><b>${t}</b><span>${org} · ${dur}</span></span></a>`
+    : `<div class="pl-item"><span class="pl-thumb"><span class="soon">Coming soon</span></span><span><b>${t}</b><span>${org} · ${slot}</span></span></div>`).join('');
+}
+renderPlaylist();
 
 /* ============ countdowns (DEMO targets: real dates have passed) ============ */
 const eventTarget = Date.now() + (24*24*60*60*1000) + (9*3600*1000); // demo: ~24 days out
@@ -1052,8 +1098,8 @@ function tickDeadline(){ // round closes at midnight tonight, local time
 setInterval(tickHero, 1000); tickHero();
 setInterval(tickDeadline, 1000); tickDeadline();
 
-/* ============ marquees: duplicate content for a seamless loop ============ */
-['marquee','coTrack'].forEach(id => { const el = document.getElementById(id); el.innerHTML += el.innerHTML; });
+/* ============ marquees: duplicate content for a continuous loop ============ */
+['marquee','commTrack'].forEach(id => { const el = document.getElementById(id); el.innerHTML += el.innerHTML; });
 document.querySelectorAll('.ph-track').forEach(el => { el.innerHTML += el.innerHTML; });
 
 /* ============ speakers ============ */
